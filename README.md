@@ -3,6 +3,10 @@
 부산대학교 기계공학부 다중물리 로보틱스 연구실(MPRL) 홈페이지입니다.
 [Astro](https://astro.build)로 만든 정적 사이트이며, GitHub에 올리면 자동으로 배포됩니다.
 
+- 사이트: https://mprl-pnu.github.io (영어: https://mprl-pnu.github.io/en/)
+- 저장소: https://github.com/mprl-pnu/mprl-pnu.github.io
+- 배포 상태: https://github.com/mprl-pnu/mprl-pnu.github.io/actions
+
 > **핵심 원칙: 내용은 `src/data/` 폴더의 YAML 파일에만 적습니다.**
 > 한 곳에 적으면 홈·소식·연구·구성원 페이지와 한국어/영어 페이지에 모두 자동 반영됩니다.
 
@@ -10,19 +14,19 @@
 
 ## 1. 무엇을 어디서 고치나요?
 
-| 바꾸고 싶은 것 | 파일 |
+| 바꾸고 싶은 것 | 파일 (클릭하면 GitHub 편집 화면) |
 |---|---|
-| 뉴스·사진(갤러리) 추가 | `src/data/news.yaml` |
-| 논문·특허 추가, 대표 논문 지정 | `src/data/publications.yaml` |
-| 구성원 추가/졸업 처리 | `src/data/people.yaml` |
-| 학생 모집 중/마감, 마감일 | `src/data/site.yaml` → `recruiting` |
-| 연구과제 추가 | `src/data/projects.yaml` |
-| 연구 분야 설명 | `src/data/research.yaml` |
-| 초청강연·언론보도 | `src/data/talks.yaml` |
-| 강의 | `src/data/courses.yaml` |
-| 모집 페이지 문구 | `src/data/join.yaml` |
-| 연구실 소개 문구, 연락처 | `src/data/site.yaml` |
-| 사진 파일 | `public/images/` (news, people, research 폴더) |
+| 뉴스·사진(갤러리) 추가 | [`src/data/news.yaml`](https://github.com/mprl-pnu/mprl-pnu.github.io/edit/main/src/data/news.yaml) |
+| 논문·특허 추가, 대표 논문 지정 | [`src/data/publications.yaml`](https://github.com/mprl-pnu/mprl-pnu.github.io/edit/main/src/data/publications.yaml) |
+| 구성원 추가/졸업 처리 | [`src/data/people.yaml`](https://github.com/mprl-pnu/mprl-pnu.github.io/edit/main/src/data/people.yaml) |
+| 학생 모집 중/마감, 마감일 | [`src/data/site.yaml` → `recruiting`](https://github.com/mprl-pnu/mprl-pnu.github.io/edit/main/src/data/site.yaml) |
+| 연구과제 추가 | [`src/data/projects.yaml`](https://github.com/mprl-pnu/mprl-pnu.github.io/edit/main/src/data/projects.yaml) |
+| 연구 분야 설명 | [`src/data/research.yaml`](https://github.com/mprl-pnu/mprl-pnu.github.io/edit/main/src/data/research.yaml) |
+| 초청강연·언론보도 | [`src/data/talks.yaml`](https://github.com/mprl-pnu/mprl-pnu.github.io/edit/main/src/data/talks.yaml) |
+| 강의 | [`src/data/courses.yaml`](https://github.com/mprl-pnu/mprl-pnu.github.io/edit/main/src/data/courses.yaml) |
+| 모집 페이지 문구 | [`src/data/join.yaml`](https://github.com/mprl-pnu/mprl-pnu.github.io/edit/main/src/data/join.yaml) |
+| 연구실 소개 문구, 연락처, 홈 영상 | [`src/data/site.yaml`](https://github.com/mprl-pnu/mprl-pnu.github.io/edit/main/src/data/site.yaml) |
+| 사진 파일 | [`public/images/`](https://github.com/mprl-pnu/mprl-pnu.github.io/tree/main/public/images) (news, people, research, hero 폴더) |
 
 **`ko:` / `en:`** 두 줄을 함께 적으면 언어별로 다르게 나오고, 한 줄만 적으면 두 언어 모두 그 문구가 나옵니다.
 
@@ -126,14 +130,15 @@ npm run dev
 
 ---
 
-## 5. 최초 배포 설정 (한 번만)
+## 5. 배포 설정 (2026-10-01 완료)
 
-1. GitHub에 저장소를 만들고 이 폴더를 push 합니다.
-   - 저장소 이름을 `<계정명>.github.io`로 하면 주소가 `https://<계정명>.github.io/`가 됩니다.
-   - 다른 이름이면 `https://<계정명>.github.io/<저장소명>/`이 됩니다. (경로는 자동으로 맞춰집니다)
-2. 저장소 **Settings → Pages → Build and deployment → Source**를 **GitHub Actions**로 선택합니다.
-3. `main` 브랜치에 push 하면 자동 배포됩니다.
-4. (선택) 학교 도메인(예: `mprl.pusan.ac.kr`)을 쓰려면 Settings → Pages → Custom domain에 입력하고, 학교 전산팀에 CNAME 레코드(`<계정명>.github.io`)를 요청합니다.
+- GitHub 조직 `mprl-pnu`의 공개 저장소 `mprl-pnu.github.io`에서 **GitHub Actions**로 배포합니다 (Settings → Pages → Source: GitHub Actions).
+- `main` 브랜치에 변경이 올라가면 1~2분 뒤 자동 반영되고, 매주 월요일 오전 3시(KST)에도 자동으로 다시 빌드됩니다.
+- **주의:** GitHub은 공개 저장소에 60일 동안 아무 변경이 없으면 *매주 자동 빌드*를 멈춥니다. 오래 수정하지 않았다면
+  [Actions 탭](https://github.com/mprl-pnu/mprl-pnu.github.io/actions) 위쪽의 안내에서 다시 켜거나, 뉴스를 하나 추가하면 됩니다.
+- 학생에게 수정 권한을 주려면: 조직 `mprl-pnu` → People → Invite member.
+- (선택) 학교 도메인(예: `mprl.pusan.ac.kr`)을 쓰려면 Settings → Pages → Custom domain에 입력하고, 학교 전산팀에 CNAME 레코드(`mprl-pnu.github.io`)를 요청합니다.
+- 내 컴퓨터에서 `git push`로 올릴 때 배포 설정 파일(`.github/workflows/`)을 바꾸려면 GitHub CLI에 `workflow` 권한이 필요합니다: `gh auth refresh -h github.com -s workflow`
 
 ---
 
