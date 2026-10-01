@@ -1,0 +1,77 @@
+# ─────────────────────────────────────────────────────────────
+#  사이트 기본 정보
+#  ko / en 두 가지를 함께 적습니다. 한쪽만 적으면 두 언어 모두 그 문구가 나옵니다.
+# ─────────────────────────────────────────────────────────────
+
+name:
+  en: MultiPhysics Robotics Laboratory
+  ko: 다중물리 로보틱스 연구실
+short: MPRL
+
+affiliation:
+  en: Department of Mechanical Engineering, Pusan National University
+  ko: 부산대학교 기계공학부
+
+# 홈 첫 화면의 큰 문장
+tagline:
+  en: Wireless robots for minimally invasive medicine.
+  ko: 최소침습 의료를 위한 무선 로봇을 연구합니다.
+
+# 홈 첫 화면의 설명 문단
+mission:
+  en: >-
+    We combine magnetics, soft materials, mechanics and machine learning to build
+    a new class of wireless medical robots — through novel designs, non-invasive
+    actuation methods, and learning & control algorithms that minimize the
+    invasiveness of diagnostic and surgical procedures.
+  ko: >-
+    자기장, 소프트 소재, 기계설계, 기계학습을 아우르는 다중물리 접근으로 새로운 무선 의료 로봇을 연구합니다.
+    새로운 설계, 비침습적 구동 방법, 학습·제어 알고리즘을 통해 진단과 수술의 침습성을 최소화하는 것이 목표입니다.
+
+# 홈 첫 화면 영상
+#  hero_loop:  자동 반복 재생되는 소리 없는 mp4 (public/images/ 기준 경로). 있으면 이것을 우선 사용
+#  hero_loop_mobile: 휴대폰용 작은 버전 (선택), hero_poster: 로딩 전 보이는 이미지 (선택)
+#  hero_video: hero_loop 가 없을 때 쓰는 YouTube 영상 ID (youtube.com/watch?v=여기부분)
+#  hero_link:  캡션에 붙는 링크 (선택, 예: 논문 DOI)
+hero_loop: hero/ais-hero.mp4
+hero_loop_mobile: hero/ais-hero-480.mp4
+hero_poster: hero/ais-hero-poster.jpg
+hero_video: BjyizdW9tTI
+hero_video_caption:
+  en: Hybrid magnetic actuation for pH-responsive drug delivery (Advanced Intelligent Systems, 2026)
+  ko: 하이브리드 자기 구동 시스템을 이용한 pH 반응형 약물전달 (Advanced Intelligent Systems, 2026)
+hero_link: https://doi.org/10.1002/aisy.70531
+
+# 논문 목록에서 굵게 표시할 교수님 이름 표기들
+highlight_authors:
+  - Donghoon Son
+  - Donghun Son
+  - D. Son
+
+contact:
+  email: d.son@pnu.edu
+  # phone: 051-510-XXXX   # TODO: 연구실/교수실 전화번호 (원하시면 주석 해제)
+  office:
+    en: "Room 620, Mechanical Engineering Building"
+    ko: "기계관 620호"
+  address:
+    en: "#620, Mechanical Eng. Bldg., 2, Busandaehak-ro 63beon-gil, Geumjeong-gu, Busan 46241, Korea"
+    ko: "(46241) 부산광역시 금정구 부산대학로63번길 2, 부산대학교 기계관 620호"
+  map: "https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EA%B8%B0%EA%B3%84%EA%B4%80"
+
+links:
+  scholar: "https://scholar.google.com/citations?user=GrbHwJMAAAAJ&hl=en"
+  department: "https://me.pusan.ac.kr"
+
+# ─────────────────────────────────────────────────────────────
+#  학생 모집 상태
+#  open: true  → 홈/Join Us에 "모집 중" 표시
+#  open: false → "현재 모집 계획 없음, 상시 문의 가능" 표시
+#  deadline 은 선택사항. 날짜가 지나면 자동으로 숨겨집니다.
+# ─────────────────────────────────────────────────────────────
+recruiting:
+  open: true
+  # deadline: 2026-12-31
+  positions:
+    en: Undergraduate researchers (4th year) and M.S. students
+    ko: 학부연구생(4학년) 및 석사과정 학생

@@ -1,0 +1,100 @@
+# ─────────────────────────────────────────────────────────────
+#  연구과제
+#  start / end 는 YYYY-MM 형식. end 가 지나면 자동으로 "종료 과제"로 이동합니다.
+#  confidential: true → 과제명 대신 "산학협력 과제"로 표시 (후원기관·기간만 공개)
+#  thrusts: research.yaml 의 id (선택)
+# ─────────────────────────────────────────────────────────────
+
+- start: 2026-01
+  end: 2030-12
+  title:
+    ko: 선천녹내장 정밀 치료를 위한 자성 마이크로 로봇 수술 시스템 개발
+    en: Magnetic microrobotic surgery system for precision treatment of congenital glaucoma
+  sponsor:
+    ko: 이건희 소아암·희귀질환 극복사업
+    en: Lee Kun-hee Pediatric Cancer & Rare Disease Program
+  thrusts: [medical, magnetic]
+
+- start: 2026-01
+  end: 2028-12
+  title:
+    ko: 안구 전방 내 마이크로 로봇 튜브 이식을 통한 실시간 안압 측정 및 적시 적응형 녹내장 치료 플랫폼 개발
+    en: Real-time intraocular pressure monitoring and adaptive glaucoma therapy via micro-robotic tube implantation in the anterior chamber
+  sponsor:
+    ko: 네이버
+    en: NAVER
+  thrusts: [medical]
+
+- start: 2022-06
+  end: 2027-02
+  title:
+    ko: 스스로 설치되는 밀리스케일 로보틱 뉴럴 임플란트
+    en: Self-deploying millimeter-scale robotic neural implants
+  sponsor:
+    ko: 한국연구재단 (신진연구자 지원사업)
+    en: National Research Foundation of Korea (NRF)
+  thrusts: [medical, magnetic]
+
+- start: 2025-07
+  end: 2026-06
+  confidential: true
+  sponsor:
+    ko: 한화에어로스페이스
+    en: Hanwha Aerospace
+
+- start: 2025-03
+  end: 2026-02
+  title:
+    ko: 원전 내 실린더형 금속폐기물용 적응형 그리퍼 설계
+    en: Adaptive gripper design for cylindrical metal waste in nuclear power plants
+  sponsor:
+    ko: 첨단로봇 인력양성사업
+    en: Advanced Robotics Workforce Development Program
+  thrusts: [soft]
+
+- start: 2025-03
+  end: 2026-02
+  title:
+    ko: 영구자석 기반의 로봇 카테터 개발
+    en: Permanent magnet–based robotic catheter
+  sponsor:
+    ko: 첨단로봇 인력양성사업
+    en: Advanced Robotics Workforce Development Program
+  thrusts: [medical, magnetic]
+
+- start: 2024-07
+  end: 2025-08
+  confidential: true
+  sponsor:
+    ko: 한화에어로스페이스
+    en: Hanwha Aerospace
+
+- start: 2024-03
+  end: 2025-02
+  title:
+    ko: 원전 필터 교체용 엔드이펙터 툴 설계
+    en: End-effector tool design for nuclear filter replacement
+  sponsor:
+    ko: 첨단로봇 인력양성사업
+    en: Advanced Robotics Workforce Development Program
+
+- start: 2024-02
+  end: 2024-12
+  confidential: true
+  sponsor:
+    ko: LG전자
+    en: LG Electronics
+
+- start: 2023-01
+  end: 2025-12
+  confidential: true
+  sponsor:
+    ko: 국방과학연구소
+    en: Agency for Defense Development (ADD)
+
+- start: 2022-08
+  end: 2024-10
+  confidential: true
+  sponsor:
+    ko: LG전자
+    en: LG Electronics

@@ -1,0 +1,371 @@
+# ─────────────────────────────────────────────────────────────
+#  논문 · 특허 (최신을 맨 위에 추가)
+#
+#  - title:   논문 제목
+#    authors: 저자 (쉼표로 구분, 교수님 이름은 자동으로 굵게 표시)
+#    venue:   저널/학회 이름
+#    details: 권(호), 페이지 등 (선택)
+#    year:    2026
+#    type:    journal | conference | preprint | thesis | patent
+#    link:    논문 링크 (선택)
+#    video:   YouTube 영상 ID (선택)
+#    image:   research/파일명.jpg (선택, 대표 그림)
+#    thrusts: [magnetic, medical, soft, design]   ← research.yaml 의 id. Research 페이지에 자동 연결
+#    selected: true   ← 홈 화면 "대표 논문"에 표시 (3~4편 권장)
+#    note:    "*Equal contribution" 등 (선택)
+# ─────────────────────────────────────────────────────────────
+
+# ── 2026 ──
+- title: "A Hybrid Magnetic Actuation System for Single-Input Multistates Stabilization: Application to pH-Responsive Drug Delivery"
+  authors: Sejun Park, Hanbi Park, Suho Lee, Bohyeon Kim, Jiseong Ryu, ChangKyu Yoon, Donghoon Son
+  venue: Advanced Intelligent Systems
+  details: e70531
+  year: 2026
+  type: journal
+  link: https://doi.org/10.1002/aisy.70531
+  thrusts: [magnetic, medical]
+  selected: true
+
+- title: Ecoflex-hydrogel bilayer soft robot for pH-controlled drug protection and delivery
+  authors: Hanbi Park, Minseong Kim, Yeonjae Lee, Suho Lee, Jieun Kim, Jinseo Yoon, Eun Hui Jeong, Jiwoo Kim, Jun Dong Park, Jung Bok Lee, Donghoon Son, ChangKyu Yoon
+  venue: Materials Today Bio
+  details: 38, 103093
+  year: 2026
+  type: journal
+  link: https://doi.org/10.1016/j.mtbio.2026.103093
+  thrusts: [soft, medical]
+
+# ── 2025 ──
+- title: Four-degree-of-freedom Magnetic Control of a Miniature Magnetic Robot for Intravascular Navigation Using Hybrid Magnet Arrays
+  authors: Sejun Park, Suho Lee, Jiseong Ryu, Bohyeon Kim, Donghoon Son
+  venue: Journal of Institute of Control, Robotics and Systems
+  details: 31(11), 1233–1239
+  year: 2025
+  type: journal
+  link: https://doi.org/10.5302/j.icros.2025.25.0222
+  thrusts: [magnetic, medical]
+
+- title: Layer-jamming soft gripper for improved stiffness control and underwater adhesion
+  authors: Minseong Kim, Junyeock Oh, Donghoon Son
+  venue: Extreme Mechanics Letters
+  details: 77, 102322
+  year: 2025
+  type: journal
+  link: https://doi.org/10.1016/j.eml.2025.102322
+  video: BjyizdW9tTI
+  image: research/layer-jamming-gripper.jpg
+  thrusts: [soft]
+  selected: true
+
+- title: Four-Degree-of-Freedom Magnetic Control of a Miniature Permanent Magnet for Intravascular Navigation Using Hybrid Magnet Arrays
+  authors: Sejun Park, Suho Lee, Jiseong Ryu, Bohyeon Kim, Donghoon Son
+  venue: KSME Bioengineering Division Spring Conference
+  year: 2025
+  type: conference
+  link: https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12266766
+  thrusts: [magnetic, medical]
+
+- title: Relative motion transformation for ground robotics test bed in rendezvous/docking simulation
+  authors: Jaewook Lim, Sejun Park, Kyung-Mi Park, Donghoon Son, Dong-Hyun Cho
+  venue: International Journal of Aeronautical and Space Sciences
+  details: 26(1), 302–313
+  year: 2025
+  type: journal
+  link: https://doi.org/10.1007/s42405-024-00818-1
+
+# ── 2024 ──
+- title: Machine learning-based shear optimal adhesive microstructures with experimental validation
+  authors: Cem Balda Dayan, Donghoon Son, Amirreza Aghakhani, Yingdan Wu, Sinan Ozgun Demir, Metin Sitti
+  venue: Small
+  details: 20(2), 2304437
+  year: 2024
+  type: journal
+  link: https://doi.org/10.1002/smll.202304437
+  image: research/ml-shear-adhesive.jpg
+  thrusts: [design, soft]
+
+- title: Design of Planar Permanent Magnet Array for Remotely Actuated Magnetic Micro Robots
+  authors: Un Soo Kang, Chang Su Ha, Seung Han Lee, Jun Ho Kim, Sungwoo Chun, Donghoon Son
+  venue: Journal of Magnetics
+  details: 29(3), 284–290
+  year: 2024
+  type: journal
+  link: https://doi.org/10.4283/jmag.2024.29.3.284
+  thrusts: [magnetic, design]
+
+- title: FEM-based Bayesian Optimization of Electromagnet Configuration for Enhancing Microrobot Actuation
+  authors: Hyeokjin Kweon, Donghoon Son
+  venue: The Journal of Korea Robotics Society
+  details: 19(1), 45–52
+  year: 2024
+  type: journal
+  link: https://doi.org/10.7746/jkros.2024.19.1.045
+  thrusts: [design, magnetic]
+
+- title: Axis Kinematics Algorithm for Satellite Manipulator System in Orbital Motion
+  authors: Junsik Kim, Yuna Choi, Youngjin Choi, Donghoon Son, Alejandro Astudillo, Jan Swevers, Jonghoon Park, Daehee Won
+  venue: International Conference on Space Robotics (iSpaRo)
+  details: 380–386
+  year: 2024
+  type: conference
+  link: https://doi.org/10.1109/isparo60631.2024.10687540
+
+# ── 2022 ──
+- title: A tissue adhesion-controllable and biocompatible small-scale hydrogel adhesive robot
+  authors: Yun-Woo Lee*, Sungwoo Chun*, Donghoon Son*, Xinghao Hu, Martina Schneider, Metin Sitti
+  venue: Advanced Materials
+  details: 34(13), 2109325
+  year: 2022
+  type: journal
+  link: https://doi.org/10.1002/adma.202109325
+  image: research/hydrogel-robot.jpg
+  note: "*Equal contribution"
+  thrusts: [medical, soft]
+  selected: true
+
+- title: Order and information in the patterns of spinning magnetic micro-disks at the air-water interface
+  authors: Wendong Wang, Gaurav Gardi, Paolo Malgaretti, Vimal Kishore, Lyndon Koens, Donghoon Son, Hunter Gilbert, Zongyuan Wu, Palak Harwani, Eric Lauga, Christian Holm, Metin Sitti
+  venue: Science Advances
+  details: 8(2), eabk0685
+  year: 2022
+  type: journal
+  link: https://doi.org/10.1126/sciadv.abk0685
+  thrusts: [magnetic]
+
+# ── 2021 ──
+- title: Permanent magnet array–driven navigation of wireless millirobots inside soft tissues
+  authors: Donghoon Son, Musab Cagri Ugurlu, Metin Sitti
+  venue: Science Advances
+  details: 7(43), eabi8932
+  year: 2021
+  type: journal
+  link: https://doi.org/10.1126/sciadv.abi8932
+  video: O-QYdJUQAHk
+  extra_video: https://youtu.be/og9MHWzrJIc
+  thrusts: [magnetic, medical]
+  selected: true
+
+- title: Adaptive self-sealing suction-based soft robotic gripper
+  authors: Sukho Song*, Dirk-Michael Drotlef*, Donghoon Son*, Anastasia Koivikko, Metin Sitti
+  venue: Advanced Science
+  details: 8(17), 2100641
+  year: 2021
+  type: journal
+  link: https://doi.org/10.1002/advs.202100641
+  video: t7bWy91b0Do
+  note: "*Equal contribution"
+  thrusts: [soft]
+
+- title: Machine learning-based and experimentally validated optimal adhesive fibril designs
+  authors: Donghoon Son, Ville Liimatainen, Metin Sitti
+  venue: Small
+  details: 17(39), 2102867
+  year: 2021
+  type: journal
+  link: https://doi.org/10.1002/smll.202102867
+  image: research/ml-adhesive-fibril.jpg
+  thrusts: [design, soft]
+
+# ── 2020 ──
+- title: Liquid-superrepellent bioinspired fibrillar adhesives
+  authors: Ville Liimatainen, Dirk-Michael Drotlef, Donghoon Son, Metin Sitti
+  venue: Advanced Materials
+  details: 32(19), 2000497
+  year: 2020
+  type: journal
+  link: https://doi.org/10.1002/adma.202000497
+  thrusts: [soft]
+
+- title: Magnetically actuated soft capsule endoscope for fine-needle biopsy
+  authors: Donghoon Son, Hunter Gilbert, Metin Sitti
+  venue: Soft Robotics
+  details: 7(1), 10–21
+  year: 2020
+  type: journal
+  link: https://doi.org/10.1089/soro.2018.0171
+  video: izMtKBw7Fto
+  thrusts: [medical, magnetic]
+
+# ── 2019 ──
+- title: A simultaneous calibration method for magnetic robot localization and actuation systems
+  authors: Donghoon Son, Xiaoguang Dong, Metin Sitti
+  venue: IEEE Transactions on Robotics
+  details: 35(2), 343–352
+  year: 2019
+  type: journal
+  link: https://doi.org/10.1109/tro.2018.2885218
+  image: research/simultaneous-calibration.jpg
+  thrusts: [magnetic]
+
+# ── 2018 ──
+- title: Localization, Calibration, Control, and Design of Magnetically Actuated Soft Capsule Endoscopes
+  authors: Donghoon Son
+  venue: Ph.D. Dissertation, Carnegie Mellon University
+  year: 2018
+  type: thesis
+  link: https://www.proquest.com/openview/ac42aa030b7e707c5958e8b70eb3f72d/1?pq-origsite=gscholar&cbl=18750&diss=y
+  video: MbWhMwLRA8M
+  thrusts: [medical, magnetic]
+
+# ── 2017 ──
+- title: Magnetically actuated soft capsule endoscope for fine-needle aspiration biopsy
+  authors: Donghoon Son, Mustafa Doga Dogan, Metin Sitti
+  venue: IEEE International Conference on Robotics and Automation (ICRA)
+  details: 1132–1139
+  year: 2017
+  type: conference
+  link: https://doi.org/10.1109/icra.2017.7989135
+  video: eOHDPgaMSNw
+  thrusts: [medical, magnetic]
+
+# ── 2016 ──
+- title: A 5-D localization method for a magnetically manipulated untethered robot using a 2-D array of Hall-effect sensors
+  authors: Donghoon Son, Sehyuk Yim, Metin Sitti
+  venue: IEEE/ASME Transactions on Mechatronics
+  details: 21(2), 708–716
+  year: 2016
+  type: journal
+  link: https://doi.org/10.1109/tmech.2015.2488361
+  video: TZ_jUicup4Y
+  thrusts: [magnetic]
+
+# ── 2012 이전 ──
+- title: Development and Validation of a Virtual Fit Assessment Method for Pilot Oxygen Mask Design
+  authors: W. Lee, D. Son, D. Jung, S. Park, H.E. Kim, H. You, M. Yoo, C. Park
+  venue: Proceedings of the Ergonomics Society of Korea Conference
+  details: 160–165
+  year: 2012
+  type: conference
+
+- title: A new seam-tracking algorithm through characteristic-point detection for a portable welding robot
+  authors: Doyoung Chang, Donghoon Son, Jungwoo Lee, Donghun Lee, Tae-wan Kim, Kyu-Yeul Lee, Jongwon Kim
+  venue: Robotics and Computer-Integrated Manufacturing
+  details: 28(1), 1–13
+  year: 2012
+  type: journal
+  link: https://doi.org/10.1016/j.rcim.2011.06.001
+
+- title: Design and application of a wire-driven bidirectional telescopic mechanism for workspace expansion with a focus on shipbuilding tasks
+  authors: Donghun Lee, Doyoung Chang, Young-Il Shin, Donghoon Son, Tae-Wan Kim, Kyu-Yeul Lee, Jongwon Kim
+  venue: Advanced Robotics
+  details: 25(6–7), 699–715
+  year: 2011
+  type: journal
+  link: https://doi.org/10.1163/016918611x563265
+
+- title: An improvement in the sizing system of oxygen masks for Korean pilots
+  authors: B. Lee, W. Lee, J. Jeong, E. Jeon, D. Son, S. Park, D. Jung, H. Kim, H. You
+  venue: Proceedings of the Ergonomics Society of Korea Fall Conference
+  year: 2011
+  type: conference
+
+- title: Development of a design process for an oxygen mask based on 3D face scanning
+  authors: W. Lee, J. Jeong, E. Jeon, D. Son, S. Park, D. Jung, H.E. Kim, H. You
+  venue: Proceedings of the Ergonomics Society of Korea Conference
+  details: 239–245
+  year: 2011
+  type: conference
+
+- title: Analysis of the Facial Anthropometric Data of Korean Pilots for Oxygen Mask Design
+  authors: J. Jeong, W. Lee, J. Park, B. Lee, E. Jeon, D. Son, S. Park, D. Jung, H. Kim, et al.
+  venue: Proceedings of the Ergonomics Society of Korea Spring Conference
+  year: 2011
+  type: conference
+
+- title: Development of a characteristic point detecting seam tracking algorithm for portable welding robots
+  authors: Doyoung Chang, Donghoon Son, Namsoo Kim, Jongwon Kim, Jungwoo Lee, Tae-Wan Kim, Kyu-Yeul Lee
+  venue: IEEE International Workshop on Robotic and Sensors Environments (ROSE)
+  details: 1–6
+  year: 2010
+  type: conference
+  link: https://doi.org/10.1109/rose.2010.5675251
+
+- title: Gait planning based on kinematics for a quadruped gecko model with redundancy
+  authors: Donghoon Son, Dongsu Jeon, Woo Chul Nam, Doyoung Chang, TaeWon Seo, Jongwon Kim
+  venue: Robotics and Autonomous Systems
+  details: 58(5), 648–656
+  year: 2010
+  type: journal
+  link: https://doi.org/10.1016/j.robot.2009.11.009
+
+- title: Kinematics-based gait planning of a quadruped gecko-like model
+  authors: Doyoung Chang, Donghun Son, TaeWon Seo, Woochul Nam, Dongsu Jeon, Jongwon Kim
+  venue: IEEE International Conference on Robotics and Biomimetics (ROBIO)
+  details: 233–238
+  year: 2009
+  type: conference
+  link: https://doi.org/10.1109/robio.2009.5420628
+
+- title: 이중선체 블록 내부 전처리 자동화 로봇 시스템 개발
+  authors: 이동훈, 신영일, 손동훈, 구남국, 이규열, 김태완, 김수호, 김종원
+  venue: 한국정밀공학회 학술발표대회 논문집
+  details: 147–148
+  year: 2008
+  type: conference
+
+# ─────────────────────────────────────────────────────────────
+#  특허 (type: patent)
+# ─────────────────────────────────────────────────────────────
+- title: Method of making one or more fibrils, computer implemented method of simulating an adhesive force of one or more fibrils and fibril
+  authors: Metin Sitti, Ville Liimatainen, Donghoon Son
+  venue: US Patent Application
+  details: US20240149501A1
+  year: 2024
+  type: patent
+  link: https://patents.google.com/patent/US20240149501A1/en
+
+- title: Magnetic trap system and method of navigating a microscopic device
+  authors: Donghoon Son, Musab Cagri Ugurlu, P. Bluemer, Metin Sitti
+  venue: US Patent Application
+  details: US20230031374A1
+  year: 2023
+  type: patent
+  link: https://patents.google.com/patent/US20230031374A1/en
+
+- title: Simultaneous calibration method for magnetic localization and actuation systems
+  authors: Metin Sitti, Donghoon Son, Xiaoguang Dong
+  venue: US Patent
+  details: US11717142B2 (also EP3666163A1, CN111289923A, JP2020095021A)
+  year: 2023
+  type: patent
+  link: https://patents.google.com/patent/US11717142B2/en
+
+- title: Magnetically actuated capsule endoscope, magnetic field generating and sensing apparatus and method of actuating a magnetically actuated capsule endoscope
+  authors: Metin Sitti, Donghoon Son
+  venue: PCT / EP / CN Patent Application
+  details: WO2018219741A1, EP3599973A1, CN110913743A
+  year: 2018
+  type: patent
+  link: https://patents.google.com/patent/WO2018219741A1/en
+
+- title: Automatic welding robot
+  authors: N. Kim, J. Kim, T. Kim, D. Son, K.Y. Lee, D. Chang
+  venue: Korean Patent
+  details: KR101111257B1
+  year: 2012
+  type: patent
+  link: https://patents.google.com/patent/KR101111257B1/en
+
+- title: Method of recognizing shape of welding zone, method of generating welding path adopting the same, and automatic welding robot adopting the same methods
+  authors: K. Lee, J. Kim, T.W. Kim, D. Chang, D. Son, J. Lee
+  venue: Korean Patent
+  details: KR101098894B1
+  year: 2011
+  type: patent
+  link: https://patents.google.com/patent/KR101098894B1/en
+
+- title: Robot having rotatable arm
+  authors: K. Kang, N. Ku, S. Kim, J.M. Kim, J. Kim, T. Kim, D. Son, Y. Shin, K. Lee, D. Lee, S. Lee
+  venue: Korean Patent
+  details: KR100995739B1
+  year: 2011
+  type: patent
+  link: https://patents.google.com/patent/KR100995739B1/en
+
+- title: Ladder type work-robot
+  authors: K.Y. Lee, J.W. Kim, T.W. Kim, D.H. Lee, Y.I. Shin, D. Son, N.K. Ku
+  venue: PCT Patent Application
+  details: WO2010002044A1
+  year: 2010
+  type: patent
+  link: https://patents.google.com/patent/WO2010002044A1/en

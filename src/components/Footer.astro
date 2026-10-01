@@ -1,0 +1,85 @@
+---
+import { site, today } from '../lib/data';
+import { type Lang, formatDate, href, t, tx } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="container cols">
+    <div>
+      <p class="name">{tx(site.name, lang)} ({site.short})</p>
+      <p>{tx(site.affiliation, lang)}</p>
+      <p class="addr">{tx(site.contact.address, lang)}</p>
+    </div>
+    <div class="links">
+      <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+      {site.links.scholar && <a href={site.links.scholar}>Google Scholar</a>}
+      {site.links.department && <a href={site.links.department}>{lang === 'ko' ? '부산대학교 기계공학부' : 'PNU Mechanical Engineering'}</a>}
+      <a href={href(lang, 'join')}>{t(lang, 'nav.join')}</a>
+    </div>
+  </div>
+  <div class="container bottom">
+    <span>© {today.slice(0, 4)} {site.short}, Pusan National University</span>
+    <span>{t(lang, 'footer.updated')}: {formatDate(today, lang)}</span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: clamp(48px, 8vw, 96px);
+    background: var(--ink);
+    color: rgb(255 255 255 / 0.72);
+    font-size: 0.9rem;
+    padding: 48px 0 24px;
+  }
+
+  .cols {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .name {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .addr {
+    margin-top: 6px;
+    max-width: 52ch;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .links a {
+    color: rgb(255 255 255 / 0.85);
+  }
+
+  .links a:hover {
+    color: #fff;
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgb(255 255 255 / 0.12);
+    font-size: 0.8rem;
+    color: rgb(255 255 255 / 0.5);
+  }
+</style>

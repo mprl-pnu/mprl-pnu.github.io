@@ -1,0 +1,54 @@
+# ─────────────────────────────────────────────────────────────
+#  초청강연 & 언론보도 (최신을 맨 위에)
+# ─────────────────────────────────────────────────────────────
+
+talks:
+  - date: 2023-11
+    title: Magnetic Actuation for Wireless Medical Robotics
+    venue: ICAE 2023
+    link: https://www.icae.kr
+  - date: 2023-02
+    title: Wireless Medical Robots
+    venue: 한국로봇학회 (KROS 2023)
+    link: https://www.irobotnews.com/news/articleView.html?idxno=30842
+  - date: 2022-06
+    title: 무선 소형 의료 로봇
+    venue: 제어로봇시스템학회 (ICROS 2022)
+    link: http://m.irobotnews.com/news/articleView.html?idxno=28822
+  - date: 2022-02
+    title: Wireless Medical Robots
+    venue: 숙명여자대학교 첨단소재 연구소 학술 행사
+  - date: 2021-12
+    title: Wireless Medical Robots
+    venue: 대한의료기술혁신학회 추계학술대회 (K-NOTES)
+    link: http://www.kimtec.or.kr
+  - date: 2021-12
+    title: Minimally Invasive Mobile Medical Robots
+    venue: IBS Center for Nanomedicine, Yonsei University
+    link: https://ibs.yonsei.ac.kr/news.asp?act=view&mid=m06%5F01&cmid=m06%5F01&bid=5&pact=&page=1&keyword=&sOpt=&uid=&idx=697&ddx=0&sdx=0
+  - date: 2021-04
+    title: Design and Application of the Magnetically Actuated Small Scale Magnetic Robots
+    venue: Mechanical Engineering Seminar, Seoul National University
+    link: https://me.snu.ac.kr/ko/board/seminar/view/14048
+
+media:
+  - date: 2021-11
+    title: Magnetic traps help robots navigate soft tissue
+    outlet: Nature Electronics (Research Highlight)
+    link: https://doi.org/10.1038/s41928-021-00679-6
+  - date: 2021-10
+    title: 소형 의료 로봇과 소프트 시스템
+    outlet: MATERIC 신진연구자 인터뷰
+    link: https://www.materic.or.kr/community/rising_mterview/content.asp?f_id=108&page=1&s_kinds=&s_word=
+  - date: 2017-08
+    title: Edible robot surgeons will cure you from the inside out
+    outlet: Engadget
+    link: https://www.engadget.com/2017-08-09-edible-robot-surgeons-cure-from-inside-out.html
+  - date: 2017-06
+    title: A Colonoscopy Robot and Other Weird Biomedical Tech From IEEE's Biggest Robotics Conference
+    outlet: IEEE Spectrum
+    link: https://spectrum.ieee.org/a-colonoscopy-robot-and-other-weird-biomedical-tech-from-the-ieees-biggest-robotics-conference
+  - date: 2017-01
+    title: "Ein Bonbon mit Scheinwerfer und Kamera: Die Kapselendoskopie"
+    outlet: ZDF (German TV)
+    link: https://youtu.be/AknqfDQivoE

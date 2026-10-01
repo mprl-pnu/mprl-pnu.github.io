@@ -1,0 +1,28 @@
+---
+import { type Lang, t } from '../lib/i18n';
+
+interface Props {
+  id: string;
+  title: string;
+  lang: Lang;
+  caption?: string;
+}
+
+const { id, title, lang, caption } = Astro.props;
+---
+
+<figure class="yt">
+  <div class="media-frame">
+    <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy" decoding="async" />
+    <button class="yt-play" type="button" data-yt={id} aria-label={`${t(lang, 'video.play')}: ${title}`}>
+      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+    </button>
+  </div>
+  {caption && <figcaption class="caption">{caption}</figcaption>}
+</figure>
+
+<style>
+  .yt {
+    margin: 0;
+  }
+</style>

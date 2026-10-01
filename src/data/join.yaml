@@ -1,0 +1,66 @@
+# ─────────────────────────────────────────────────────────────
+#  Join Us 페이지 문구
+#  모집 여부/마감일은 site.yaml 의 recruiting 에서 바꿉니다.
+# ─────────────────────────────────────────────────────────────
+
+intro:
+  ko: >-
+    MPRL은 로봇이 실제 환경, 특히 사람과 의료 현장에서 더 정밀하고 안전하게 작동할 수 있도록 자기장 기반 로봇,
+    소프트 로봇, 의료 로봇을 연구합니다. 기계설계, 제어, 실험, 시뮬레이션, 최적화, 그리고 필요에 따라 학습 기반
+    방법까지 함께 다루며, 현실적인 문제를 직접 풀어가는 연구를 지향합니다.
+  en: >-
+    MPRL builds magnetic, soft and medical robots that work precisely and safely in the real world —
+    especially around people and in clinical settings. We combine mechanical design, control, experiments,
+    simulation, optimization and, where it helps, learning-based methods to solve real problems hands-on.
+
+topics:
+  ko:
+    - 자기장 기반 로봇 및 의료 로봇
+    - 소프트 로보틱스 및 유연 그리퍼
+    - 정밀 기계설계 및 설계 최적화
+    - 로봇 제어, 모델링, 실험 시스템 개발
+    - 기타 관심 주제는 상담 후 조율 가능
+  en:
+    - Magnetic and medical robots
+    - Soft robotics and compliant grippers
+    - Precision mechanical design and design optimization
+    - Robot control, modeling and experimental systems
+    - Other topics of interest — let's talk
+
+looking_for:
+  ko:
+    - 대학원 진학 또는 연구 경험에 관심이 있는 기계공학부 4학년 학부생 또는 졸업생
+    - 로보틱스, 기계설계, 제어, 프로그래밍 중 한 분야 이상에 흥미가 있는 학생
+    - 스스로 배우고 꾸준히 문제를 해결하려는 태도를 가진 학생
+    - 성실하게 참여하며 팀원들과 협업할 수 있는 학생
+  en:
+    - Senior undergraduates or graduates in mechanical engineering (or related fields) interested in graduate study or research
+    - Interest in at least one of robotics, mechanical design, control or programming
+    - Self-motivated learners who keep working at hard problems
+    - Reliable team players
+
+you_get:
+  ko:
+    - 실제 연구 주제를 바탕으로 설계, 제작, 실험, 분석 전 과정을 경험
+    - 논문 읽기, 아이디어 발전, 실험 설계, 데이터 해석 등 연구의 기본기 습득
+    - 국내외 학회 발표 및 논문 연구 참여 기회
+    - 연구 인건비 지급 및 연구용 장비, PC, 연구 공간 지원
+    - 대학원 진학과 연구 커리어에 대한 밀도 있는 지도
+  en:
+    - The full research cycle — design, fabrication, experiments and analysis — on real projects
+    - Research fundamentals — reading papers, developing ideas, designing experiments, interpreting data
+    - Opportunities to present at domestic and international conferences and co-author papers
+    - Stipend, research equipment, a dedicated PC and workspace
+    - Close mentoring for graduate school and research careers
+
+how_to_apply:
+  ko: >-
+    간단한 자기소개와 이력사항(CV 또는 자유 양식)을 이메일로 보내주시면, 검토 후 개별 면담 일정을 안내드리겠습니다.
+  en: >-
+    Email a short introduction and your CV (any format). We will get back to you to schedule a meeting.
+
+closing:
+  ko: >-
+    로보틱스를 직접 설계하고 만들고 실험해보며, 단순한 참여를 넘어 실제 연구를 함께 해보고 싶은 학생들의 지원을 기다립니다.
+  en: >-
+    If you want to design, build and test robots yourself — and do real research rather than just take part — we'd love to hear from you.

@@ -1,0 +1,236 @@
+---
+import { site, hasImage } from '../lib/data';
+import { type Lang, href, img, switchLang, t, tx } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+  active?: string;
+}
+
+const { lang, active } = Astro.props;
+const other: Lang = lang === 'ko' ? 'en' : 'ko';
+
+const nav = [
+  { key: 'research', label: t(lang, 'nav.research') },
+  { key: 'publications', label: t(lang, 'nav.publications') },
+  { key: 'people', label: t(lang, 'nav.people') },
+  { key: 'news', label: t(lang, 'nav.news') },
+  { key: 'teaching', label: t(lang, 'nav.teaching') },
+  { key: 'contact', label: t(lang, 'nav.contact') },
+];
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <a class="brand" href={href(lang, '/')} aria-label={tx(site.name, lang)}>
+      {hasImage('logo.png') && <img src={img('logo.png')} alt="" width="40" height="40" />}
+      <span class="brand-text">
+        <strong>{site.short}</strong>
+        <span>{tx(site.name, 'en')}</span>
+      </span>
+    </a>
+
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="visually-hidden">{t(lang, 'menu')}</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </button>
+
+    <nav id="site-nav" class="nav" aria-label="Main">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a href={href(lang, item.key)} aria-current={active === item.key ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a class="btn btn--primary join" href={href(lang, 'join')} aria-current={active === 'join' ? 'page' : undefined}>
+        {t(lang, 'nav.join')}
+      </a>
+      <a class="lang" href={switchLang(Astro.url.pathname, other)} hreflang={other} lang={other}>
+        {t(lang, 'lang.switch')}
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgb(255 255 255 / 0.92);
+    backdrop-filter: saturate(1.4) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: var(--header-h);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+    min-width: 0;
+  }
+
+  .brand:hover {
+    text-decoration: none;
+  }
+
+  .brand img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .brand-text strong {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text span {
+    font-size: 0.72rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2px;
+  }
+
+  .nav ul a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    color: var(--ink-2);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .nav ul a:hover {
+    background: var(--bg-soft);
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav ul a[aria-current='page'] {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .join {
+    margin-left: 8px;
+    padding: 8px 16px;
+  }
+
+  .lang {
+    margin-left: 4px;
+    padding: 8px 10px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .lang:hover {
+    color: var(--ink);
+  }
+
+  .menu-btn {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    margin-right: -10px;
+  }
+
+  .menu-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--ink);
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  @media (max-width: 1000px) {
+    .menu-btn {
+      display: grid;
+      place-items: center;
+    }
+
+    .nav {
+      display: none;
+      position: absolute;
+      top: var(--header-h);
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+      padding: 12px var(--gutter) 24px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .nav.open {
+      display: flex;
+    }
+
+    .nav ul {
+      flex-direction: column;
+    }
+
+    .nav ul a {
+      padding: 12px 8px;
+      font-size: 1.05rem;
+    }
+
+    .join {
+      margin: 4px 0 0;
+      justify-content: center;
+      padding: 12px 16px;
+    }
+
+    .lang {
+      text-align: center;
+      margin: 0;
+    }
+  }
+</style>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.menu-btn');
+  const nav = document.getElementById('site-nav');
+  btn?.addEventListener('click', () => {
+    const open = nav!.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+</script>

@@ -1,0 +1,123 @@
+# ─────────────────────────────────────────────────────────────
+#  연구 주제 (Thrust)
+#  id 는 publications.yaml / projects.yaml 의 thrusts: [...] 와 연결됩니다. (바꾸면 양쪽 모두 수정)
+#  video: YouTube 영상 ID, image: research/파일명.jpg — Research 페이지에 표시 (둘 중 하나 이상 권장)
+#  thumb: 홈 화면 카드 이미지, loop: 카드에 마우스를 올리면 재생되는 짧은 mp4 (둘 다 선택)
+#  figures: 영상 아래에 붙는 추가 그림들 (선택)
+# ─────────────────────────────────────────────────────────────
+
+- id: magnetic
+  number: "01"
+  title:
+    en: Magnetic Actuation & Localization
+    ko: 자기장 구동 및 위치추정
+  summary:
+    en: >-
+      Steering untethered robots deep inside the body with permanent-magnet arrays, electromagnetic coils
+      and hybrid magnet arrays — and closing the loop with magnetic localization and calibration.
+    ko: >-
+      영구자석 배열, 전자석 코일, 하이브리드 자석 배열로 체내 깊숙한 곳의 무선 로봇을 구동하고,
+      자기 위치추정·보정 기법으로 폐루프 제어를 구현합니다.
+  points:
+    en:
+      - Permanent magnet array–driven navigation of millirobots inside soft tissue using magnetic energy traps
+      - 4-DoF control of miniature magnets for intravascular navigation with hybrid magnet arrays
+      - 9-coil electromagnetic actuation system optimized for vertical force over a stomach-sized workspace
+      - 5-D localization with 2-D Hall-effect sensor arrays, compatible with magnetic actuation
+      - Simultaneous calibration of ~1,800 localization/actuation parameters (R² > 0.99)
+    ko:
+      - 자기 에너지 트랩을 이용한 영구자석 배열 기반 연조직 내 밀리로봇 내비게이션
+      - 하이브리드 자석 배열을 이용한 혈관 내 소형 자석의 4자유도 제어
+      - 위 전체를 덮는 넓은 작업공간과 수직 방향 힘에 최적화된 9-코일 전자기 구동 시스템
+      - 자기 구동과 호환되는 2차원 홀센서 배열 기반 5자유도 위치추정
+      - 약 1,800개 위치추정·구동 파라미터의 동시 보정 (R² > 0.99)
+  video: O-QYdJUQAHk
+  thumb: research/loop-magnetic.jpg
+  loop: research/loop-magnetic.mp4
+  figures: [research/ema-9coil.jpg, research/ema-9coil-cad.jpg, research/simultaneous-calibration.jpg]
+
+- id: medical
+  number: "02"
+  title:
+    en: Wireless Medical Robots
+    ko: 무선 의료 로봇
+  summary:
+    en: >-
+      Minimally invasive robots for diagnosis, therapy and implantation — soft capsule endoscopes that take
+      biopsies, magnetic catheters, microrobotic glaucoma surgery, self-deploying neural implants and
+      drug-delivery soft robots.
+    ko: >-
+      진단·치료·이식을 위한 최소침습 무선 로봇 — 조직검사가 가능한 소프트 캡슐내시경, 자석 기반 로봇 카테터,
+      녹내장 마이크로로봇 수술, 스스로 설치되는 뉴럴 임플란트, 약물전달 소프트 로봇을 연구합니다.
+  points:
+    en:
+      - Magnetically actuated soft capsule endoscope for fine-needle biopsy, validated in ex-vivo porcine stomachs
+      - Tissue-adhesion-controllable, biocompatible hydrogel robots
+      - pH- and temperature-responsive soft robots for targeted drug delivery
+      - Magnetic microrobotic surgery and implants for glaucoma treatment
+      - Self-deploying millimeter-scale robotic neural implants and permanent-magnet robotic catheters
+    ko:
+      - 미세바늘 조직검사가 가능한 자기 구동 소프트 캡슐내시경 (돼지 위 ex-vivo 검증)
+      - 조직 접착 조절이 가능한 생체적합 하이드로젤 로봇
+      - pH·온도 반응형 표적 약물전달 소프트 로봇
+      - 녹내장 치료를 위한 자성 마이크로로봇 수술 및 이식 플랫폼
+      - 스스로 설치되는 밀리스케일 로보틱 뉴럴 임플란트, 영구자석 기반 로봇 카테터
+  video: eOHDPgaMSNw
+  thumb: research/loop-medical.jpg
+  loop: research/loop-medical.mp4
+  figures: [research/hydrogel-robot.jpg]
+
+- id: soft
+  number: "03"
+  title:
+    en: Soft Robotics & Grippers
+    ko: 소프트 로봇 및 그리퍼
+  summary:
+    en: >-
+      Grippers and soft bodies whose stiffness and adhesion can be tuned on demand — from layer-jamming
+      grippers that hold on underwater to self-sealing suction grippers and adaptive grippers for industry.
+    ko: >-
+      강성과 접착력을 필요에 따라 조절하는 그리퍼와 소프트 바디 — 수중에서도 붙잡는 레이어 재밍 그리퍼부터
+      자가 밀봉 흡착 그리퍼, 산업용 적응형 그리퍼까지 연구합니다.
+  points:
+    en:
+      - Layer-jamming soft gripper with tunable stiffness and underwater adhesion
+      - Self-sealing suction gripper that adapts to rough, irregular and delicate objects
+      - Bioinspired fibrillar adhesives, including liquid-superrepellent designs
+      - Adaptive grippers for handling cylindrical metal waste in nuclear facilities
+    ko:
+      - 강성 조절과 수중 접착이 가능한 레이어 재밍 소프트 그리퍼
+      - 거칠고 불규칙하거나 연약한 물체에 적응하는 자가 밀봉 흡착 그리퍼
+      - 액체 초발수성을 포함한 생체모방 미세섬유 접착 구조
+      - 원전 내 실린더형 금속폐기물 처리를 위한 적응형 그리퍼
+  video: BjyizdW9tTI
+  thumb: research/loop-soft.jpg
+  loop: research/loop-soft.mp4
+  figures: [research/layer-jamming-gripper.jpg]
+
+- id: design
+  number: "04"
+  title:
+    en: Learning-based Design Optimization
+    ko: 학습 기반 설계 최적화
+  summary:
+    en: >-
+      Machine learning and FEM-in-the-loop Bayesian optimization to discover designs that intuition would
+      miss — adhesive microstructures, electromagnet layouts and magnet arrays — always validated by experiment.
+    ko: >-
+      기계학습과 유한요소해석 기반 베이지안 최적화로 직관으로는 찾기 어려운 설계 — 접착 미세구조, 전자석 배치,
+      자석 배열 — 를 찾아내고 실험으로 검증합니다.
+  points:
+    en:
+      - Hyperelastic FEM simulations in concert with Bayesian optimization for adhesive fibril shapes
+      - Shear-optimal adhesive microstructures discovered by machine learning
+      - Bayesian optimization of electromagnet configurations for microrobot actuation
+      - Planar permanent magnet array design and generative design of robot components
+    ko:
+      - 초탄성 유한요소해석과 베이지안 최적화를 결합한 접착 미세섬유 형상 설계
+      - 기계학습으로 찾은 전단 최적 접착 미세구조
+      - 마이크로로봇 구동을 위한 전자석 배치의 베이지안 최적화
+      - 평면 영구자석 배열 설계 및 로봇 부품의 생성형 설계
+  image: research/ml-adhesive-fibril.jpg
+  thumb: research/ml-shear-adhesive.jpg
+  figures: [research/ml-shear-adhesive.jpg]

@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../lib/data';
+import { type Lang, t, tx } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const c = site.contact;
+const googleMap = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Pusan National University Mechanical Engineering Building')}`;
+---
+
+<Base lang={lang} title={t(lang, 'contact.title')} active="contact">
+  <header class="page-head">
+    <div class="container">
+      <h1>{t(lang, 'contact.title')}</h1>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <dl class="info">
+        <div>
+          <dt>{t(lang, 'contact.email')}</dt>
+          <dd><a href={`mailto:${c.email}`}>{c.email}</a></dd>
+        </div>
+        {
+          c.phone && (
+            <div>
+              <dt>{lang === 'ko' ? '전화' : 'Phone'}</dt>
+              <dd><a href={`tel:${c.phone.replace(/[^\d+]/g, '')}`}>{c.phone}</a></dd>
+            </div>
+          )
+        }
+        <div>
+          <dt>{t(lang, 'contact.office')}</dt>
+          <dd>{tx(c.office, lang)}</dd>
+        </div>
+        <div class="wide">
+          <dt>{t(lang, 'contact.address')}</dt>
+          <dd>{tx(c.address, lang)}</dd>
+        </div>
+      </dl>
+      <div class="maps">
+        {c.map && <a class="btn btn--ghost" href={c.map} target="_blank" rel="noopener">{lang === 'ko' ? '네이버 지도' : 'Naver Map'} ↗</a>}
+        <a class="btn btn--ghost" href={googleMap} target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .info {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px 40px;
+    margin: 0;
+  }
+
+  .info .wide {
+    grid-column: 1 / -1;
+  }
+
+  dt {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  dd {
+    margin: 4px 0 0;
+    font-size: 1.1rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .maps {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  @media (max-width: 720px) {
+    .info {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

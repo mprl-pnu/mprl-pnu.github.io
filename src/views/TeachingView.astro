@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import { courses } from '../lib/data';
+import { type Lang, t, tx } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const groups = (['undergraduate', 'graduate'] as const)
+  .map((level) => ({ label: t(lang, `teaching.${level}`), items: courses.filter((c) => c.level === level) }))
+  .filter((g) => g.items.length > 0);
+---
+
+<Base lang={lang} title={t(lang, 'teaching.title')} active="teaching">
+  <header class="page-head">
+    <div class="container">
+      <h1>{t(lang, 'teaching.title')}</h1>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container grid-2">
+      {
+        groups.map((g) => (
+          <div>
+            <h2 class="group">{g.label}</h2>
+            <ul class="courses">
+              {g.items.map((c) => (
+                <li>
+                  <span class="name">{tx(c.name, lang)}</span>
+                  {c.terms && <span class="terms">{tx(c.terms, lang)}</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<style>
+  .group {
+    font-size: 1.2rem;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .courses {
+    list-style: none;
+  }
+
+  .courses li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .name {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .terms {
+    color: var(--muted);
+    font-size: 0.9rem;
+    text-align: right;
+  }
+</style>

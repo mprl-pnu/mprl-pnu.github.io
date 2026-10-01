@@ -1,0 +1,138 @@
+---
+import { hasImage } from '../lib/data';
+import { type Lang, formatDate, img, t } from '../lib/i18n';
+
+interface Props {
+  item: { date: string; tag: string; ko?: string; en?: string; images: string[]; link?: string };
+  lang: Lang;
+  compact?: boolean;
+}
+
+const { item, lang, compact = false } = Astro.props;
+const body = (lang === 'en' ? item.en ?? item.ko : item.ko ?? item.en) ?? '';
+const images = compact ? [] : item.images.filter((p) => hasImage(p));
+---
+
+<article class:list={['news-item', { compact }]} data-type={item.tag}>
+  <div class="meta">
+    <time datetime={item.date}>{formatDate(item.date, lang)}</time>
+    <span class="tag" data-tag={item.tag}>{t(lang, `tag.${item.tag}` as any)}</span>
+  </div>
+  <div class="body">
+    <p>
+      {body}
+      {item.link && <a class="ext" href={item.link} target="_blank" rel="noopener">{lang === 'ko' ? '링크' : 'Link'} ↗</a>}
+    </p>
+    {
+      images.length > 0 && (
+        <div class:list={['photos', `n${Math.min(images.length, 3)}`]}>
+          {images.map((p) => (
+            <a href={img(p)} data-zoom>
+              <img src={img(p)} alt={body} loading="lazy" decoding="async" />
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</article>
+
+<style>
+  .news-item {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 8px 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  time {
+    font-weight: 600;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .body p {
+    color: var(--ink-2);
+  }
+
+  .ext {
+    margin-left: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .photos {
+    display: grid;
+    gap: 8px;
+    margin-top: 14px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .photos.n1 {
+    grid-template-columns: minmax(0, 420px);
+  }
+
+  .photos.n2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 640px;
+  }
+
+  .photos a {
+    display: block;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--bg-soft);
+  }
+
+  .photos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .photos a:hover img {
+    transform: scale(1.03);
+  }
+
+  .compact {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+    padding: 16px 0;
+  }
+
+  .compact .meta {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .compact time {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 640px) {
+    .news-item {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .news-item .meta {
+      flex-direction: row;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .photos {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

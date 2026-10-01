@@ -1,0 +1,329 @@
+---
+import Base from '../layouts/Base.astro';
+import YouTube from '../components/YouTube.astro';
+import { research, publicationsFor, activeProjects, pastProjects, hasImage } from '../lib/data';
+import { type Lang, href, img, t, tx, txList } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const period = (p: { start: string; end: string }) => `${p.start.slice(0, 7).replace('-', '.')} – ${p.end.slice(0, 7).replace('-', '.')}`;
+const projectGroups = [
+  { label: t(lang, 'research.active'), items: activeProjects },
+  { label: t(lang, 'research.past'), items: pastProjects },
+].filter((g) => g.items.length > 0);
+---
+
+<Base lang={lang} title={t(lang, 'research.title')} active="research">
+  <header class="page-head">
+    <div class="container">
+      <h1>{t(lang, 'research.title')}</h1>
+      <p>{t(lang, 'research.lead')}</p>
+      <ul class="chip-list jump">
+        {
+          research.map((r) => (
+            <li>
+              <a class="chip" href={`#${r.id}`}>
+                {r.number && <span class="n">{r.number}</span>}
+                {tx(r.title, lang)}
+              </a>
+            </li>
+          ))
+        }
+        <li><a class="chip" href="#projects">{t(lang, 'research.projects')}</a></li>
+      </ul>
+    </div>
+  </header>
+
+  {
+    research.map((r, i) => {
+      const pubs = publicationsFor(r.id);
+      const points = txList(r.points, lang);
+      const figures = r.figures.filter((f) => hasImage(f));
+      return (
+        <section class:list={['section', 'thrust', { flip: i % 2 === 1 }]} id={r.id}>
+          <div class="container">
+            <div class="thrust-grid">
+              <div class="media">
+                {r.video ? (
+                  <YouTube id={r.video} lang={lang} title={tx(r.title, lang)} />
+                ) : hasImage(r.image) ? (
+                  <div class="media-frame media-frame--contain">
+                    <img src={img(r.image!)} alt={tx(r.title, lang)} loading="lazy" />
+                  </div>
+                ) : null}
+                {figures.length > 0 && (
+                  <div class:list={['figures', `n${Math.min(figures.length, 3)}`]}>
+                    {figures.map((f) => (
+                      <a href={img(f)} data-zoom>
+                        <img src={img(f)} alt={tx(r.title, lang)} loading="lazy" decoding="async" />
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <div class="text">
+                {r.number && <span class="eyebrow">{r.number}</span>}
+                <h2>{tx(r.title, lang)}</h2>
+                <p class="summary">{tx(r.summary, lang)}</p>
+                {points.length > 0 && (
+                  <ul class="dot-list">
+                    {points.map((p) => (
+                      <li>{p}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+
+            {pubs.length > 0 && (
+              <div class="related">
+                <h3>{t(lang, 'research.related')}</h3>
+                <ul>
+                  {pubs.slice(0, 6).map((p) => (
+                    <li>
+                      {p.link ? (
+                        <a href={p.link} target="_blank" rel="noopener">
+                          {p.title}
+                        </a>
+                      ) : (
+                        <span class="plain">{p.title}</span>
+                      )}
+                      <span class="venue">
+                        {p.venue}, {p.year}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                {pubs.length > 6 && (
+                  <a class="more-link all" href={href(lang, 'publications')}>
+                    {t(lang, 'research.morePubs')} (+{pubs.length - 6})
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        </section>
+      );
+    })
+  }
+
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-head"><h2>{t(lang, 'research.projects')}</h2></div>
+      {
+        projectGroups.map((g) => (
+          <div class="projects">
+            <h3>
+              {g.label} <span class="muted">{g.items.length}</span>
+            </h3>
+            <ul>
+              {g.items.map((p) => (
+                <li>
+                  <span class="period">{period(p)}</span>
+                  <span class="ptitle">
+                    {p.confidential || !p.title ? <span class="muted">{t(lang, 'research.confidential')}</span> : tx(p.title, lang)}
+                  </span>
+                  <span class="sponsor">{tx(p.sponsor, lang)}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<style>
+  .jump {
+    margin-top: 24px;
+  }
+
+  .jump a.chip {
+    font-size: 0.875rem;
+    padding: 6px 14px;
+    background: #fff;
+    color: var(--ink-2);
+    gap: 6px;
+  }
+
+  .jump a.chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .jump .n {
+    font-family: var(--mono);
+    color: var(--accent);
+  }
+
+  .thrust-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(28px, 5vw, 64px);
+    align-items: start;
+  }
+
+  .flip .media {
+    order: 2;
+  }
+
+  .figures {
+    display: grid;
+    gap: 10px;
+    margin-top: 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .figures.n1 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .figures.n2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .figures a {
+    display: block;
+    aspect-ratio: 4 / 3;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .figures.n1 a {
+    aspect-ratio: auto;
+  }
+
+  .figures img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 6px;
+  }
+
+  .text h2 {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    font-weight: 800;
+  }
+
+  .summary {
+    margin: 14px 0 20px;
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+
+  .related {
+    margin-top: 40px;
+    padding: 22px 24px;
+    border-radius: var(--radius);
+    background: var(--bg-soft);
+  }
+
+  .related h3 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .related ul {
+    list-style: none;
+    display: grid;
+    gap: 8px;
+  }
+
+  .related li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 12px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .related a,
+  .related .plain {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .related a:hover {
+    color: var(--accent);
+  }
+
+  .related .venue {
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+
+  .related .all {
+    color: var(--accent);
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.875rem;
+  }
+
+  .projects + .projects {
+    margin-top: 36px;
+  }
+
+  .projects h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .projects h3 .muted {
+    font-weight: 500;
+    margin-left: 4px;
+  }
+
+  .projects ul {
+    list-style: none;
+    border-top: 1px solid var(--line-strong);
+  }
+
+  .projects li {
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr) minmax(0, 260px);
+    gap: 4px 24px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .period {
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+    font-size: 0.925rem;
+  }
+
+  .ptitle {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .sponsor {
+    color: var(--ink-2);
+    font-size: 0.925rem;
+  }
+
+  @media (max-width: 860px) {
+    .thrust-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .flip .media {
+      order: 0;
+    }
+
+    .projects li {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

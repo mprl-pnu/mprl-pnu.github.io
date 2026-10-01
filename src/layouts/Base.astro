@@ -1,0 +1,113 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site, hasImage } from '../lib/data';
+import { type Lang, tx, switchLang, asset, img } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  active?: string;
+}
+
+const { lang, title, description, active } = Astro.props;
+const labName = tx(site.name, lang);
+const fullTitle = title ? `${title} | ${site.short} · ${lang === 'ko' ? '부산대학교' : 'Pusan National University'}` : `${labName} (${site.short}) | ${tx(site.affiliation, lang)}`;
+const desc = description ?? tx(site.mission, lang);
+const path = Astro.url.pathname;
+const canonical = new URL(path, Astro.site);
+const altKo = new URL(switchLang(path, 'ko'), Astro.site);
+const altEn = new URL(switchLang(path, 'en'), Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="ko" href={altKo} />
+    <link rel="alternate" hreflang="en" href={altEn} />
+    <link rel="alternate" hreflang="x-default" href={altKo} />
+    <link rel="icon" type="image/svg+xml" href={asset('favicon.svg')} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={`${tx(site.name, 'en')} (${site.short})`} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    {hasImage('og.jpg') && <meta property="og:image" content={new URL(img('og.jpg'), Astro.site)} />}
+    <meta property="og:locale" content={lang === 'ko' ? 'ko_KR' : 'en_US'} />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{lang === 'ko' ? '본문 바로가기' : 'Skip to content'}</a>
+    <Header lang={lang} active={active} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+
+    <dialog class="lightbox" id="lightbox" aria-label="Image viewer">
+      <button type="button" data-close aria-label={lang === 'ko' ? '닫기' : 'Close'}>×</button>
+      <img alt="" />
+    </dialog>
+
+    <script>
+      // YouTube: load the player only when clicked (faster pages, no tracking until play).
+      document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        const play = target.closest<HTMLButtonElement>('[data-yt]');
+        if (play) {
+          const frame = document.createElement('iframe');
+          frame.src = `https://www.youtube-nocookie.com/embed/${play.dataset.yt}?autoplay=1&rel=0`;
+          frame.title = play.getAttribute('aria-label') ?? 'YouTube video';
+          frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+          frame.allowFullscreen = true;
+          play.parentElement!.replaceChildren(frame);
+          return;
+        }
+
+        // Lightbox for news / gallery photos
+        const zoom = target.closest<HTMLAnchorElement>('a[data-zoom]');
+        const dialog = document.getElementById('lightbox') as HTMLDialogElement | null;
+        if (zoom && dialog?.showModal) {
+          e.preventDefault();
+          const image = dialog.querySelector('img')!;
+          image.src = zoom.href;
+          image.alt = zoom.querySelector('img')?.alt ?? '';
+          dialog.showModal();
+          return;
+        }
+        if (dialog?.open && (target === dialog || target.closest('[data-close]'))) dialog.close();
+      });
+
+      // Filter buttons: <div data-filter-group="x"><button data-filter="type">…  +  items with data-type
+      document.querySelectorAll<HTMLElement>('[data-filter-group]').forEach((group) => {
+        const scope = document.getElementById(group.dataset.filterGroup!);
+        if (!scope) return;
+        group.hidden = false;
+        group.addEventListener('click', (e) => {
+          const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('button[data-filter]');
+          if (!btn) return;
+          const value = btn.dataset.filter!;
+          group.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+          scope.querySelectorAll<HTMLElement>('[data-type]').forEach((item) => {
+            item.hidden = value !== 'all' && !item.dataset.type!.split(' ').includes(value);
+          });
+          // hide year groups that became empty
+          scope.querySelectorAll<HTMLElement>('[data-group]').forEach((g) => {
+            g.hidden = !g.querySelector('[data-type]:not([hidden])');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,420 @@
+---
+import Base from '../layouts/Base.astro';
+import YouTube from '../components/YouTube.astro';
+import NewsItem from '../components/NewsItem.astro';
+import PubItem from '../components/PubItem.astro';
+import { site, research, news, selectedPublications, sponsors, hasImage } from '../lib/data';
+import { type Lang, href, img, t, tx } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const other: Lang = lang === 'ko' ? 'en' : 'ko';
+
+const thumbFor = (r: (typeof research)[number]) => {
+  const local = [r.thumb, r.image].find((p) => hasImage(p));
+  return local ? img(local) : r.video ? `https://i.ytimg.com/vi/${r.video}/hqdefault.jpg` : undefined;
+};
+const loopFor = (r: (typeof research)[number]) => (hasImage(r.loop) ? img(r.loop!) : undefined);
+
+const heroLoop = hasImage(site.hero_loop) ? img(site.hero_loop!) : undefined;
+const heroLoopMobile = hasImage(site.hero_loop_mobile) ? img(site.hero_loop_mobile!) : undefined;
+const heroPoster = hasImage(site.hero_poster) ? img(site.hero_poster!) : undefined;
+const heroCaption = tx(site.hero_video_caption, lang);
+---
+
+<Base lang={lang} active="home">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow">{tx(site.affiliation, lang)}</span>
+        <h1>
+          {tx(site.name, lang)}
+          <span class="sub" lang={other}>{tx(site.name, other)}</span>
+        </h1>
+        <p class="tagline">{tx(site.tagline, lang)}</p>
+        <p class="mission">{tx(site.mission, lang)}</p>
+        <div class="cta">
+          <a class="btn btn--primary" href={href(lang, 'research')}>{t(lang, 'home.explore')} →</a>
+          <a class="btn btn--ghost" href={href(lang, 'join')}>
+            {site.recruiting.open && <span class="pulse" aria-hidden="true"></span>}
+            {t(lang, 'nav.join')}
+          </a>
+        </div>
+      </div>
+      {
+        heroLoop ? (
+          <figure class="hero-media">
+            <div class="media-frame">
+              <video class="hero-loop" autoplay muted loop playsinline preload="auto" poster={heroPoster} aria-label={heroCaption}>
+                {heroLoopMobile && <source src={heroLoopMobile} type="video/mp4" media="(max-width: 700px)" />}
+                <source src={heroLoop} type="video/mp4" />
+              </video>
+            </div>
+            {heroCaption && (
+              <figcaption class="caption">
+                {heroCaption}
+                {site.hero_link && (
+                  <a class="hero-link" href={site.hero_link} target="_blank" rel="noopener">
+                    {t(lang, 'pubs.paper')} ↗
+                  </a>
+                )}
+              </figcaption>
+            )}
+          </figure>
+        ) : (
+          site.hero_video && (
+            <div class="hero-media">
+              <YouTube id={site.hero_video} lang={lang} title={heroCaption} caption={heroCaption} />
+            </div>
+          )
+        )
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>{t(lang, 'home.research')}</h2>
+        <a class="more-link" href={href(lang, 'research')}>{t(lang, 'more')}</a>
+      </div>
+      <div class="thrusts">
+        {
+          research.map((r) => {
+            const thumb = thumbFor(r);
+            const loop = loopFor(r);
+            return (
+              <a class="thrust" href={`${href(lang, 'research')}#${r.id}`}>
+                <div class="thumb">
+                  {loop ? (
+                    <video src={loop} poster={thumb} muted loop playsinline preload="none" aria-hidden="true" />
+                  ) : (
+                    thumb && <img src={thumb} alt="" loading="lazy" decoding="async" />
+                  )}
+                </div>
+                <div class="thrust-body">
+                  {r.number && <span class="num">{r.number}</span>}
+                  <h3>{tx(r.title, lang)}</h3>
+                  <p>{tx(r.summary, lang)}</p>
+                </div>
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container grid-2">
+      <div>
+        <div class="section-head">
+          <h2>{t(lang, 'home.news')}</h2>
+          <a class="more-link" href={href(lang, 'news')}>{t(lang, 'home.allNews')}</a>
+        </div>
+        <div>
+          {news.slice(0, 6).map((n) => <NewsItem item={n} lang={lang} compact />)}
+        </div>
+      </div>
+      <div>
+        <div class="section-head">
+          <h2>{t(lang, 'home.selected')}</h2>
+          <a class="more-link" href={href(lang, 'publications')}>{t(lang, 'home.allPubs')}</a>
+        </div>
+        <div class="selected">
+          {selectedPublications.slice(0, 4).map((p) => <PubItem pub={p} lang={lang} thumb />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {
+    sponsors.length > 0 && (
+      <section class="section partners">
+        <div class="container">
+          <h2 class="partners-title">{t(lang, 'home.partners')}</h2>
+          <ul class="chip-list">
+            {sponsors.map((s) => (
+              <li class="chip">{tx(s, lang)}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    site.recruiting.open && (
+      <section class="container">
+        <div class="join-band">
+          <div>
+            <h2>{t(lang, 'home.joinTitle')}</h2>
+            <p>{t(lang, 'home.joinBody')}</p>
+          </div>
+          <a class="btn join-btn" href={href(lang, 'join')}>
+            {t(lang, 'home.joinCta')} →
+          </a>
+        </div>
+      </section>
+    )
+  }
+</Base>
+
+<script>
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Hero loop: respect the reduced-motion setting (show the poster, let the user start it).
+  const hero = document.querySelector<HTMLVideoElement>('.hero-loop');
+  if (hero && reduceMotion) {
+    hero.removeAttribute('autoplay');
+    hero.pause();
+    hero.controls = true;
+  }
+
+  // Research cards: play the short loop while hovered (desktop), show the poster otherwise.
+  if (!reduceMotion) {
+    document.querySelectorAll<HTMLAnchorElement>('.thrust').forEach((card) => {
+      const video = card.querySelector('video');
+      if (!video) return;
+      card.addEventListener('mouseenter', () => video.play().catch(() => {}));
+      card.addEventListener('mouseleave', () => video.pause());
+      card.addEventListener('focus', () => video.play().catch(() => {}));
+      card.addEventListener('blur', () => video.pause());
+    });
+  }
+</script>
+
+<style>
+  .hero {
+    padding: clamp(40px, 7vw, 96px) 0 clamp(48px, 7vw, 88px);
+    background:
+      radial-gradient(1200px 400px at 85% -10%, var(--bg-tint), transparent 70%),
+      var(--bg);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4.2vw, 3.1rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  h1 .sub {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.42em;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--muted);
+  }
+
+  .tagline {
+    margin-top: 24px;
+    font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .mission {
+    margin-top: 12px;
+    color: var(--ink-2);
+    max-width: 60ch;
+  }
+
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #16a34a;
+    box-shadow: 0 0 0 0 rgb(22 163 74 / 0.5);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    70% {
+      box-shadow: 0 0 0 8px rgb(22 163 74 / 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgb(22 163 74 / 0);
+    }
+  }
+
+  .hero-media {
+    margin: 0;
+  }
+
+  .hero-loop {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-link {
+    margin-left: 8px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .hero-media :global(.media-frame) {
+    box-shadow: 0 20px 50px -20px rgb(15 23 42 / 0.35);
+  }
+
+  /* Research thrusts */
+  .thrusts {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .thrust {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #fff;
+    color: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  }
+
+  .thrust:hover {
+    text-decoration: none;
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+  }
+
+  .thrust .thumb {
+    aspect-ratio: 16 / 9;
+    background: var(--bg-tint);
+    overflow: hidden;
+  }
+
+  .thrust .thumb img,
+  .thrust .thumb video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .thrust-body {
+    padding: 18px 20px 22px;
+  }
+
+  .num {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .thrust h3 {
+    margin-top: 4px;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .thrust p {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .selected :global(.pub:first-child) {
+    padding-top: 0;
+  }
+
+  /* Partners */
+  .partners {
+    padding: 40px 0;
+  }
+
+  .partners-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .partners .chip {
+    font-size: 0.875rem;
+    padding: 6px 14px;
+    background: #fff;
+  }
+
+  /* Join band */
+  .join-band {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: clamp(28px, 4vw, 44px) clamp(24px, 4vw, 48px);
+    border-radius: calc(var(--radius) * 1.5);
+    background: linear-gradient(120deg, var(--accent-ink), var(--accent));
+    color: rgb(255 255 255 / 0.88);
+  }
+
+  .join-band h2 {
+    color: #fff;
+    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  }
+
+  .join-band p {
+    margin-top: 6px;
+  }
+
+  .join-btn {
+    background: #fff;
+    color: var(--accent-ink);
+  }
+
+  .join-btn:hover {
+    background: var(--accent-soft);
+  }
+
+  @media (max-width: 1000px) {
+    .thrusts {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 860px) {
+    .hero-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .thrusts {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

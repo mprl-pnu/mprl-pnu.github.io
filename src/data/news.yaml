@@ -1,0 +1,257 @@
+# ─────────────────────────────────────────────────────────────
+#  뉴스 & 갤러리 (최신 소식을 맨 위에 추가하세요)
+#
+#  - date:   2026-09-07       (날짜를 모르면 2026-09 또는 2026 처럼 적어도 됩니다)
+#    tag:    paper            (paper | award | grant | collab | conference | talk | people | media | lab)
+#    ko:     한국어 문장
+#    en:     English sentence (생략하면 영어 페이지에도 한국어가 나옵니다)
+#    images: [news/파일명.jpg]  (public/images/news/ 폴더에 사진을 올리고 파일명만 적기, 생략 가능)
+#    link:   https://...      (관련 링크, 생략 가능)
+#
+#  tag 설명: paper 논문 · award 수상 · grant 과제 · collab 공동연구 · conference 학회 · talk 강연
+#            people 입학/졸업 · media 언론·대외활동 · lab 연구실 생활
+# ─────────────────────────────────────────────────────────────
+
+- date: 2026-09-07
+  tag: paper
+  ko: >-
+    박세준 군의 "A Hybrid Magnetic Actuation System for Single-Input Multistates Stabilization:
+    Application to pH-Responsive Drug Delivery" 논문이 Advanced Intelligent Systems에 게재되었습니다. 축하합니다!
+  en: >-
+    Our paper "A Hybrid Magnetic Actuation System for Single-Input Multistates Stabilization:
+    Application to pH-Responsive Drug Delivery" has been published in Advanced Intelligent Systems.
+  link: https://doi.org/10.1002/aisy.70531
+
+- date: 2026-04-03
+  tag: paper
+  ko: >-
+    숙명여대 윤창규 교수님 연구실과의 공동연구 "Ecoflex-hydrogel bilayer soft robot for pH-controlled
+    drug protection and delivery" 논문이 Materials Today Bio에 게재되었습니다.
+  en: >-
+    Our joint work with Prof. ChangKyu Yoon's group (Sookmyung Women's University), "Ecoflex-hydrogel
+    bilayer soft robot for pH-controlled drug protection and delivery", has been published in Materials Today Bio.
+  link: https://doi.org/10.1016/j.mtbio.2026.103093
+
+- date: 2026-02-04
+  tag: conference
+  ko: 2026 한국로봇종합학술대회(KRoC)에 참가했습니다.
+  en: The lab attended the Korea Robotics Society Annual Conference (KRoC 2026).
+  images: [news/2026-02-04-kroc-1.jpg, news/2026-02-04-kroc-2.jpg, news/2026-02-04-kroc-3.jpg]
+
+- date: 2026-01
+  tag: grant
+  ko: >-
+    2026년도 이건희 소아암·희귀질환 극복사업 "선천녹내장 정밀 치료를 위한 자성 마이크로 로봇 수술 시스템 개발"
+    과제(2026–2030)를 시작했습니다.
+  en: >-
+    We started a new project, "Magnetic microrobotic surgery system for precision treatment of congenital
+    glaucoma" (2026–2030), funded by the Lee Kun-hee Pediatric Cancer & Rare Disease Program.
+
+- date: 2026-01
+  tag: grant
+  ko: >-
+    네이버 지원 "안구 전방 내 마이크로 로봇 튜브 이식을 통한 실시간 안압 측정 및 적시 적응형 녹내장 치료 플랫폼 개발"
+    과제(2026–2028)를 시작했습니다.
+  en: >-
+    We started a new NAVER-funded project on real-time intraocular pressure monitoring and adaptive glaucoma
+    therapy via micro-robotic tube implantation in the anterior chamber (2026–2028).
+
+- date: 2025-09-09
+  tag: conference
+  ko: 석사과정 박세준 군이 SICE FES 2025에서 4-DoF Hybrid Magnet Array 주제로 포스터 발표를 했습니다.
+  en: An M.S. student presented a poster on 4-DoF control with hybrid magnet arrays at SICE FES 2025.
+  images: [news/2025-09-09-sice-1.jpg, news/2025-09-09-sice-2.jpg]
+
+- date: 2025-08-22
+  tag: people
+  ko: 석사과정 김민성 군, 학부연구생 류지성 군이 기계공학부를 졸업했습니다. 축하합니다!
+  en: Congratulations to our M.S. student and undergraduate researcher on their graduation!
+
+- date: 2025-07-19
+  tag: lab
+  ko: 연구실 단합을 위해 MT를 다녀왔습니다! MPRL 화이팅!!
+  en: Lab retreat (MT) — go MPRL!
+  images: [news/2025-07-19-mt-1.jpg, news/2025-07-19-mt-2.jpg, news/2025-07-19-mt-3.jpg, news/2025-07-19-mt-4.jpg, news/2025-07-19-mt-5.jpg, news/2025-07-19-mt-6.jpg]
+
+- date: 2025-07-02   # TODO: 사진이 YES 모임 사진이 맞는지 확인
+  tag: talk
+  ko: Young Eminent Scientist(YES) 모임에 다녀왔습니다.
+  en: Prof. Son attended the Young Eminent Scientist (YES) meeting.
+  images: [news/2025-07-02-yes-1.jpg]
+
+- date: 2025-05-22
+  tag: conference
+  ko: >-
+    석사과정 박세준 군이 대한기계학회 바이오공학부문 춘계학술대회에서 "Four-Degree-of-Freedom Magnetic Control of a
+    Miniature Permanent Magnet for Intravascular Navigation Using Hybrid Magnet Arrays" 주제로 발표했습니다.
+  en: >-
+    An M.S. student presented "Four-Degree-of-Freedom Magnetic Control of a Miniature Permanent Magnet for
+    Intravascular Navigation Using Hybrid Magnet Arrays" at the KSME Bioengineering Division Spring Conference.
+  images: [news/2025-05-22-ksme-1.jpg, news/2025-05-22-ksme-2.jpg]
+
+- date: 2025-04-11
+  tag: paper
+  ko: >-
+    김민성 군의 "Layer-jamming soft gripper for improved stiffness control and underwater adhesion" 논문이
+    Extreme Mechanics Letters에 게재되었습니다. 축하합니다!
+  en: >-
+    Our paper "Layer-jamming soft gripper for improved stiffness control and underwater adhesion" has been
+    published in Extreme Mechanics Letters.
+  link: https://doi.org/10.1016/j.eml.2025.102322
+  images: [news/2025-04-11-eml-1.jpg]
+
+- date: 2025-04-01
+  tag: lab
+  ko: 벚꽃 핀 캠퍼스에서 봄 나들이를 했습니다.  # TODO: 사진 설명 확인
+  en: Spring outing under the cherry blossoms.
+  images: [news/2025-04-01-spring-1.jpg, news/2025-04-01-spring-2.jpg, news/2025-04-01-spring-3.jpg, news/2025-04-01-spring-4.jpg, news/2025-04-01-spring-5.jpg]
+
+- date: 2025-03-18
+  tag: lab
+  ko: 연구실 단체 사진  # TODO: 사진 설명을 적어주세요
+  en: Lab group photo.
+  images: [news/2025-03-18-lab-1.jpg, news/2025-03-18-lab-2.jpg]
+
+- date: 2025-02-28
+  tag: people
+  ko: 이수호, 오준역, 김혜연 학부연구생이 기계공학부를 졸업했습니다. 축하합니다!
+  en: Congratulations to three undergraduate researchers on their graduation!
+  images: [news/2025-02-28-graduation-1.jpg, news/2025-02-28-graduation-2.jpg]
+
+- date: 2025-02-26
+  tag: lab
+  ko: 교수님 생신을 함께 축하했습니다.
+  en: Celebrating Prof. Son's birthday together.
+  images: [news/2025-02-26-birthday-1.jpg]
+
+- date: 2024-09-12
+  tag: lab
+  ko: 개강 회식
+  en: New-semester lab dinner.
+  images: [news/2024-09-12-dinner-1.jpg]
+
+- date: 2024-08-26
+  tag: collab
+  ko: 숙명여대 윤창규 교수님 연구실과 합동 워크숍을 가졌습니다.
+  en: Joint workshop with Prof. ChangKyu Yoon's group (Sookmyung Women's University).
+  images: [news/2024-08-26-workshop-1.jpg, news/2024-08-26-workshop-2.jpg]
+
+- date: 2024-08-22
+  tag: lab
+  ko: Lab Tour
+  en: Lab tour.
+  images: [news/2024-08-22-labtour-1.jpg, news/2024-08-22-labtour-2.jpg]
+
+- date: 2024-07-25
+  tag: lab
+  ko: 새 멤버 환영 회식
+  en: Welcome dinner for new members.
+  images: [news/2024-07-25-welcome-1.jpg]
+
+- date: 2024-07-15
+  tag: media
+  ko: 삼성중공업 로보틱스사업팀이 연구실을 방문해 리크루팅 설명회와 Lab Tour를 진행했습니다.
+  en: The Samsung Heavy Industries robotics business team visited our lab for a recruiting session and lab tour.
+  images: [news/2024-07-15-shi-1.jpg, news/2024-07-15-shi-2.jpg]
+
+- date: 2024-03-22
+  tag: collab
+  ko: 숙명여대 윤창규 교수님 연구실과 마이크로 로봇 공동연구 킥오프 미팅을 했습니다.
+  en: Kick-off meeting for joint microrobotics research with Prof. ChangKyu Yoon's group (Sookmyung Women's University).
+  images: [news/2024-03-22-sookmyung-1.jpg]
+
+- date: 2024-02-28
+  tag: paper
+  ko: 한국로봇학회 논문지에 이상현 군, 권혁진 군의 연구가 출간되었습니다. 축하합니다!
+  en: Two undergraduate research projects were published in the Journal of Korea Robotics Society.
+
+- date: 2024-02-21
+  tag: conference
+  ko: 2024 한국로봇종합학술대회(KRoC)에서 흥미로운 연구들을 보고 배우고 왔습니다.
+  en: The lab attended the Korea Robotics Society Annual Conference (KRoC 2024).
+  images: [news/2024-02-21-kroc-1.jpg]
+
+- date: 2024-01-11
+  tag: conference
+  ko: >-
+    2024 IEEE/SICE International Symposium on System Integration(SII)에서 석사과정 김민성 군과
+    학부연구생 권혁진 군의 연구가 포스터 세션에 소개되었습니다.
+  en: >-
+    Two posters from our lab were presented at the 2024 IEEE/SICE International Symposium on System Integration (SII).
+  images: [news/2024-01-11-sii-1.jpg, news/2024-01-11-sii-2.jpg, news/2024-01-11-sii-3.jpg, news/2024-01-11-sii-4.jpg]
+
+- date: 2023-10-29
+  tag: lab
+  ko: 연구실 등산
+  en: Lab hiking trip.
+  images: [news/2023-10-29-hiking-1.jpg, news/2023-10-29-hiking-2.jpg]
+
+- date: 2023-08-25
+  tag: people
+  ko: 졸업식
+  en: Graduation day.
+  images: [news/2023-08-25-graduation-1.jpg, news/2023-08-25-graduation-2.jpg]
+
+- date: 2023-05-12
+  tag: lab
+  ko: 스승의 날
+  en: Teachers' Day.
+  images: [news/2023-05-12-teachers-day-1.jpg, news/2023-05-12-teachers-day-2.jpg]
+
+- date: 2023-03-31
+  tag: lab
+  ko: 연구실에 드디어 KUKA LBR Med가 도착했습니다. 앞으로 로봇을 활용한 좋은 연구들을 기대해 봅니다.
+  en: Our KUKA LBR Med medical robot arm has arrived!
+  images: [news/2023-03-31-kuka-1.jpg]
+
+- date: 2023-03-24
+  tag: media
+  ko: 유튜브 채널 '전과자'에 우리 학교 기계공학부가 소개되었고, 손동훈 교수님의 로봇기구학 수업도 촬영되었습니다.
+  en: Our department — including Prof. Son's Robot Kinematics class — was featured on the YouTube channel "전과자".
+  link: https://www.youtube.com/watch?v=x3BqHpzM5dQ&t=1171s
+
+- date: 2023-02-17
+  tag: conference
+  ko: >-
+    2023 한국로봇학회(KROS)에서 학부연구생 이상현 군, 권혁진 군의 연구가 포스터 세션에 소개되었고,
+    연구실 전체 연구가 신진연구자 세션에서도 소개되었습니다.
+  en: >-
+    At KROS 2023, two undergraduate posters were presented and the lab's research was introduced in the
+    Young Investigators session.
+  link: https://www.irobotnews.com/news/articleView.html?idxno=30842
+  images: [news/2023-02-17-kros-1.jpg, news/2023-02-17-kros-2.jpg]
+
+- date: 2022-06-24
+  tag: award
+  ko: >-
+    2022 제어로봇시스템학회(ICROS) 우수신진연구자 세션에서 연구실 연구가 소개되었고,
+    손동훈 교수님이 우수신진연구자상을 수상했습니다.
+  en: Prof. Son received the Outstanding Young Researcher Award at ICROS 2022 and presented in its Young Researchers session.
+  link: http://m.irobotnews.com/news/articleView.html?idxno=28822
+  images: [news/2022-06-24-icros-1.jpg]
+
+- date: 2022-03-02
+  tag: grant
+  ko: 한국연구재단 신진연구자 지원사업(1.2억/년)에 선정되었습니다.
+  en: Our proposal was selected for the NRF Early-Career Researcher Program (KRW 120M/year).
+
+- date: 2022-02-25
+  tag: people
+  ko: 최재호 군이 부산대학교 기계공학부를 최우등으로 졸업했습니다. 자랑스럽고 축하합니다!
+  en: An undergraduate researcher graduated summa cum laude from the School of Mechanical Engineering. Congratulations!
+  images: [news/2022-02-25-graduation-1.jpg]
+
+- date: 2022-02-17
+  tag: award
+  ko: 손동훈 교수님이 부산대학교 공과대학 우수연구자상을 수상했습니다.
+  en: Prof. Son received the PNU College of Engineering Excellent Researcher Award.
+
+- date: 2022-01-20
+  tag: paper
+  ko: >-
+    "A tissue adhesion-controllable and biocompatible small-scale hydrogel adhesive robot" 논문이
+    Advanced Materials에 게재되었습니다.
+  en: >-
+    "A tissue adhesion-controllable and biocompatible small-scale hydrogel adhesive robot" has been
+    published in Advanced Materials.
+  link: https://doi.org/10.1002/adma.202109325

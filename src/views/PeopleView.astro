@@ -1,0 +1,311 @@
+---
+import Base from '../layouts/Base.astro';
+import PersonCard from '../components/PersonCard.astro';
+import { site, people, hasImage } from '../lib/data';
+import { type Lang, asset, img, t, tx, txList } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { pi, members, alumni, group_photo } = people;
+const grads = members.filter((m) => m.role !== 'undergrad');
+const undergrads = members.filter((m) => m.role === 'undergrad');
+const interests = txList(pi.interests, lang);
+---
+
+<Base lang={lang} title={t(lang, 'people.title')} active="people">
+  <header class="page-head">
+    <div class="container">
+      <h1>{t(lang, 'people.title')}</h1>
+      {
+        group_photo && hasImage(group_photo.src) && (
+          <figure class="group">
+            <img src={img(group_photo.src)} alt={tx(group_photo.caption, lang) || t(lang, 'people.title')} />
+            {group_photo.caption && <figcaption class="caption">{tx(group_photo.caption, lang)}</figcaption>}
+          </figure>
+        )
+      }
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">{t(lang, 'people.pi')}</span>
+      <div class="pi">
+        <div class="pi-photo">
+          {hasImage(pi.photo) && <img src={img(pi.photo!)} alt={tx(pi.name, lang)} />}
+        </div>
+        <div class="pi-info">
+          <h2>{tx(pi.name, lang)}</h2>
+          <p class="pi-title">{tx(pi.title, lang)} · {tx(site.affiliation, lang)}</p>
+          <div class="pi-links">
+            {pi.email && <a class="btn btn--ghost" href={`mailto:${pi.email}`}>✉ {pi.email}</a>}
+            {site.links.scholar && <a class="btn btn--ghost" href={site.links.scholar} target="_blank" rel="noopener">Google Scholar ↗</a>}
+            {pi.cv && <a class="btn btn--ghost" href={asset(pi.cv)}>{t(lang, 'people.cv')} ↓</a>}
+          </div>
+          {pi.bio && <p class="bio">{tx(pi.bio, lang)}</p>}
+          {
+            interests.length > 0 && (
+              <ul class="chip-list interests" aria-label={t(lang, 'people.interests')}>
+                {interests.map((i) => (
+                  <li class="chip chip--accent">{i}</li>
+                ))}
+              </ul>
+            )
+          }
+        </div>
+      </div>
+
+      <div class="grid-2 cv">
+        {
+          pi.career.length > 0 && (
+            <div>
+              <h3>{t(lang, 'people.career')}</h3>
+              <ul class="timeline">
+                {pi.career.map((c) => (
+                  <li>
+                    <span class="when">{c.period}</span>
+                    <span>{lang === 'en' ? c.en ?? c.ko : c.ko ?? c.en}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+        {
+          pi.awards.length > 0 && (
+            <div>
+              <h3>{t(lang, 'people.awards')}</h3>
+              <ul class="timeline">
+                {pi.awards.map((a) => (
+                  <li>
+                    <span class="when">{a.year}</span>
+                    <span>{lang === 'en' ? a.en ?? a.ko : a.ko ?? a.en}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  {
+    grads.length > 0 && (
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>{t(lang, 'people.members')}</h2>
+          </div>
+          <div class="people-grid">
+            {grads.map((m) => (
+              <PersonCard person={m} lang={lang} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    undergrads.length > 0 && (
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>{t(lang, 'people.undergrads')}</h2>
+          </div>
+          <div class="people-grid">
+            {undergrads.map((m) => (
+              <PersonCard person={m} lang={lang} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    alumni.length > 0 && (
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>{t(lang, 'people.alumni')}</h2>
+          </div>
+          <ul class="alumni">
+            {alumni.map((a) => (
+              <li>
+                <span class="a-name">{tx(a.name, lang)}</span>
+                <span class="a-degree muted">
+                  {[a.degree && t(lang, `degree.${a.degree}` as any), a.year].filter(Boolean).join(' · ')}
+                </span>
+                <span class="a-now">{a.now && tx(a.now, lang)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+</Base>
+
+<style>
+  .group {
+    margin: 28px 0 0;
+  }
+
+  .group img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    object-position: center 60%;
+    border-radius: var(--radius);
+  }
+
+  .pi {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 48px);
+    align-items: start;
+    margin-top: 8px;
+  }
+
+  .pi-photo {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg-tint);
+  }
+
+  .pi-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+
+  .pi-info h2 {
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    font-weight: 800;
+  }
+
+  .pi-title {
+    margin-top: 4px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .pi-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .pi-links .btn {
+    padding: 8px 14px;
+    font-size: 0.875rem;
+  }
+
+  .bio {
+    margin-top: 20px;
+    max-width: 70ch;
+  }
+
+  .interests {
+    margin-top: 18px;
+  }
+
+  .cv {
+    margin-top: 48px;
+  }
+
+  .cv h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+
+  .timeline {
+    list-style: none;
+    border-top: 1px solid var(--line-strong);
+  }
+
+  .timeline li {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.95rem;
+  }
+
+  .when {
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 32px 24px;
+  }
+
+  .alumni {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    column-gap: 40px;
+  }
+
+  .alumni li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: 'name now' 'degree now';
+    gap: 0 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+
+  .a-name {
+    grid-area: name;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .a-degree {
+    grid-area: degree;
+    font-size: 0.85rem;
+  }
+
+  .a-degree:empty {
+    display: none;
+  }
+
+  .a-now {
+    grid-area: now;
+    text-align: right;
+    font-size: 0.925rem;
+  }
+
+  @media (max-width: 720px) {
+    .pi {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pi-photo {
+      max-width: 240px;
+    }
+
+    .people-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 16px;
+    }
+
+    .alumni {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

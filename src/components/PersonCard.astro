@@ -1,0 +1,95 @@
+---
+import { hasImage } from '../lib/data';
+import { type Lang, type Text, type TextList, img, t, tx, txList } from '../lib/i18n';
+
+interface Props {
+  person: { name: Text; role: string; photo?: string; since?: string | number; email?: string; topics?: TextList };
+  lang: Lang;
+}
+
+const { person, lang } = Astro.props;
+const name = tx(person.name, lang);
+const initials = name
+  .split(/[\s-]+/)
+  .filter((w) => /^[A-Za-z가-힣]/.test(w))
+  .map((w) => w[0])
+  .slice(0, 2)
+  .join('');
+const topics = txList(person.topics, lang);
+---
+
+<article class="person">
+  <div class="photo">
+    {hasImage(person.photo) ? <img src={img(person.photo!)} alt={name} loading="lazy" decoding="async" /> : <span aria-hidden="true">{initials}</span>}
+  </div>
+  <h3>{name}</h3>
+  <p class="role">
+    {t(lang, `role.${person.role}` as any)}{person.since && <span> · {person.since}–</span>}
+  </p>
+  {
+    topics.length > 0 && (
+      <ul class="topics">
+        {topics.map((topic) => (
+          <li>{topic}</li>
+        ))}
+      </ul>
+    )
+  }
+  {person.email && <a class="email" href={`mailto:${person.email}`}>{person.email}</a>}
+</article>
+
+<style>
+  .person {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .photo {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg-tint);
+    display: grid;
+    place-items: center;
+    margin-bottom: 14px;
+  }
+
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+  }
+
+  .photo span {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .role {
+    font-size: 0.875rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .topics {
+    list-style: none;
+    margin-top: 8px;
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.5;
+    display: grid;
+    gap: 2px;
+  }
+
+  .email {
+    margin-top: 6px;
+    font-size: 0.85rem;
+  }
+</style>

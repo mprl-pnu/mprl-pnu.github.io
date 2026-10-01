@@ -1,0 +1,126 @@
+# ─────────────────────────────────────────────────────────────
+#  구성원
+#  사진은 public/images/people/ 폴더에 넣고 파일명만 적습니다. (정사각형 또는 3:4 권장)
+#  사진이 없으면 photo 줄을 지우면 이니셜 원이 표시됩니다.
+# ─────────────────────────────────────────────────────────────
+
+# 구성원 페이지 상단 단체 사진 (선택)
+group_photo:
+  src: people/group-2026.jpg
+  caption:
+    ko: 2026 한국로봇종합학술대회(KRoC)에서
+    en: MPRL at KRoC 2026
+
+pi:
+  name:
+    en: Donghoon Son, Ph.D.
+    ko: 손동훈 교수
+  title:
+    en: Associate Professor
+    ko: 부교수
+  photo: people/donghoon-son.jpg
+  email: d.son@pnu.edu
+  # cv: files/cv-donghoon-son.pdf   # TODO: CV PDF를 public/files/ 에 넣고 주석 해제
+  interests:
+    en: [Magnetic robots, Medical robots, Robot kinematics & dynamics, Robot design, Machine learning]
+    ko: [자기장 구동 로봇, 의료 로봇, 로봇 기구학·동역학, 로봇 설계, 기계학습]
+  bio:
+    en: >-
+      Donghoon Son is an Associate Professor of Mechanical Engineering at Pusan National University,
+      where he leads the MultiPhysics Robotics Laboratory. He received his B.S. and M.S. degrees from
+      Seoul National University and his Ph.D. from Carnegie Mellon University, and was a postdoctoral
+      researcher at the Max Planck Institute for Intelligent Systems before joining PNU in 2021.
+      His research focuses on magnetically actuated wireless medical robots, soft robotic systems,
+      and learning-based design optimization.
+    ko: >-
+      부산대학교 기계공학부 부교수이며 다중물리 로보틱스 연구실을 이끌고 있습니다. 서울대학교에서 학사·석사,
+      카네기멜론대학교에서 박사 학위를 받았고, 막스플랑크 지능시스템연구소 박사후연구원을 거쳐 2021년 부산대학교에
+      부임했습니다. 자기장 구동 무선 의료 로봇, 소프트 로봇 시스템, 학습 기반 설계 최적화를 연구합니다.
+  career:
+    - period: 2025–
+      en: Associate Professor, Department of Mechanical Engineering, Pusan National University
+      ko: 부산대학교 기계공학부 부교수
+    - period: 2021–2025
+      en: Assistant Professor, Department of Mechanical Engineering, Pusan National University
+      ko: 부산대학교 기계공학부 조교수
+    - period: 2019–2020
+      en: Postdoctoral Researcher, Max Planck Institute for Intelligent Systems, Germany
+      ko: 독일 막스플랑크 지능시스템연구소 박사후연구원
+    - period: 2013–2018
+      en: Ph.D., Mechanical Engineering, Carnegie Mellon University, USA
+      ko: 미국 카네기멜론대학교 기계공학 박사
+    - period: 2010–2012
+      en: Lecturer / Full-time Lecturer, Korea Air Force Academy
+      ko: 공군사관학교 강사 / 전임강사
+    - period: 2007–2009
+      en: M.S., Mechanical Engineering, Seoul National University
+      ko: 서울대학교 기계공학 석사
+    - period: 2003–2007
+      en: B.S., Mechanical Engineering, Seoul National University
+      ko: 서울대학교 기계공학 학사
+  awards:
+    - year: 2022
+      en: Outstanding Young Researcher Award, Institute of Control, Robotics and Systems (ICROS)
+      ko: 제어로봇시스템학회(ICROS) 우수신진연구자상
+    - year: 2022
+      en: Excellent Researcher Award, College of Engineering, Pusan National University
+      ko: 부산대학교 공과대학 우수연구자상
+
+# ─────────────────────────────────────────────────────────────
+#  재학생
+#  role: phd(박사) | ms(석사) | integrated(석박통합) | grad(대학원생) | undergrad(학부연구생) | staff(연구원)
+#  since: 입학/합류 연도 (선택)
+# ─────────────────────────────────────────────────────────────
+members:
+  - name: Su-* Lee
+    role: grad   # TODO: ms / phd 로 구분
+    photo: people/su-lee.jpg
+    topics: [Magnetically Actuated Robot Design, Mechanical Design Optimization]
+  - name: Hyo-* Kim
+    role: grad
+    photo: people/hyo-kim.jpg
+    topics: [Magnetically Actuated Robot Design]
+  - name: Jeong-* Sung
+    role: grad
+    photo: people/jeong-sung.jpg
+    topics: [Magnetically Actuated Robot Design]
+  - name: Ji-* Ryu
+    role: grad
+    photo: people/ji-ryu.jpg
+    topics: [Mechanical Design Optimization, Magnetically Actuated Robot Design]
+  - name: Nam-* Shin
+    role: grad
+    photo: people/nam-shin.jpg
+    topics: [Magnetically Actuated Robot Design]
+  - name: Bo-* Kim
+    role: grad
+    photo: people/bo-kim.jpg
+    topics: [Magnetically Actuated Robot Design]
+
+# ─────────────────────────────────────────────────────────────
+#  졸업생 (degree: ms | phd | undergrad, year: 졸업연도, now: 현재 소속) — degree, year는 선택
+# ─────────────────────────────────────────────────────────────
+alumni:   # TODO: 졸업연도(year)와 학위(degree)를 채워주세요
+  - name: Jeong-* Kim
+    now: DRB
+  - name: Jeong-* Choi
+    now: ASML Korea
+  - name: Se-* Park
+    now: OpenPath Robotics
+  - name: Min-* Kim
+    now: Virginia Tech
+  - name: Jin-* Kim
+    now: LG Electronics
+  - name: Jun-* Oh
+    now: Doosan Enerbility
+  - name: Hye-* Kim
+  - name: Seung-* Lee
+    now: Samsung Electronics
+  - name: Hyeok-* Kweon
+    now: KAIST
+  - name: Sang-* Lee
+    now: Hyundai Motor Company
+  - name: Jae-* Choi
+    now: LG Energy Solution
+  - name: Min-* Do
+    now: Republic of Korea Air Force
