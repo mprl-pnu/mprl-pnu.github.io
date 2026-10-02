@@ -69,33 +69,34 @@ pi:
 # ─────────────────────────────────────────────────────────────
 #  재학생
 #  role: phd(박사) | ms(석사) | integrated(석박통합) | grad(대학원생) | undergrad(학부연구생) | staff(연구원)
+#  name: { ko: 한글, en: English } 로 적으면 언어별로 표시됩니다.
 #  since: 입학/합류 연도 (선택)
 #  lab_manager: true → 랩장 표시 + 연락처·모집 페이지에 이메일 노출 (한 명만, email 필수)
 # ─────────────────────────────────────────────────────────────
 members:
-  - name: Su-* Lee
+  - name: { ko: 이수*, en: Su-* Lee }
     role: grad   # TODO: ms / phd 로 구분
     photo: people/su-lee.jpg
     topics: [Magnetically Actuated Robot Design, Mechanical Design Optimization]
-  - name: Hyo-* Kim
+  - name: { ko: 김효*, en: Hyo-* Kim }
     role: grad
     photo: people/hyo-kim.jpg
     topics: [Magnetically Actuated Robot Design]
-  - name: Jeong-* Sung
+  - name: { ko: 성정*, en: Jeong-* Sung }
     role: grad
     photo: people/jeong-sung.jpg
     topics: [Magnetically Actuated Robot Design]
-  - name: Ji-* Ryu
+  - name: { ko: 류지*, en: Ji-* Ryu }
     role: grad
     lab_manager: true
     email: wsd2380@pusan.ac.kr
     photo: people/ji-ryu.jpg
     topics: [Mechanical Design Optimization, Magnetically Actuated Robot Design]
-  - name: Nam-* Shin
+  - name: { ko: 신남*, en: Nam-* Shin }
     role: grad
     photo: people/nam-shin.jpg
     topics: [Magnetically Actuated Robot Design]
-  - name: Bo-* Kim
+  - name: { ko: 김보*, en: Bo-* Kim }
     role: grad
     photo: people/bo-kim.jpg
     topics: [Magnetically Actuated Robot Design]
