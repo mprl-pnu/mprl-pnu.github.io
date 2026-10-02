@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { site, joinInfo, people, recruitingDeadline } from '../lib/data';
+import { site, joinInfo, people, recruitingDeadline, labManager } from '../lib/data';
 import { type Lang, formatDate, t, tx, txList } from '../lib/i18n';
 
 interface Props {
@@ -46,9 +46,17 @@ const columns = [
           )
         }
         <div>
-          <dt>{t(lang, 'contact.email')}</dt>
+          <dt>{t(lang, 'contact.pi')}</dt>
           <dd><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></dd>
         </div>
+        {
+          labManager && (
+            <div>
+              <dt>{t(lang, 'contact.labManager')}</dt>
+              <dd><a href={`mailto:${labManager.email}`}>{labManager.email}</a></dd>
+            </div>
+          )
+        }
       </dl>
     </div>
   </header>

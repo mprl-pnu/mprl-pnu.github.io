@@ -94,6 +94,16 @@ recruiting:
     now: Samsung Electronics
 ```
 
+### 랩장 바꾸기 — `src/data/people.yaml`
+
+새 랩장의 `members` 항목에 아래 두 줄을 넣고, 이전 랩장 항목에서는 `lab_manager: true`를 지웁니다.
+구성원 카드에 "랩장" 표시가 붙고, 연락처·모집 페이지의 "랩장 · 학생 문의" 이메일이 자동으로 바뀝니다.
+
+```yaml
+    lab_manager: true
+    email: 새랩장이메일@pusan.ac.kr
+```
+
 ### 연구과제 — `src/data/projects.yaml`
 
 `end`(종료 연월)가 지나면 자동으로 "종료" 목록으로 이동합니다. 사이트는 매주 월요일 자동으로 다시 빌드되어 날짜가 반영됩니다.

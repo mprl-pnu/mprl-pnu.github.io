@@ -3,7 +3,7 @@ import { hasImage } from '../lib/data';
 import { type Lang, type Text, type TextList, img, t, tx, txList } from '../lib/i18n';
 
 interface Props {
-  person: { name: Text; role: string; photo?: string; since?: string | number; email?: string; topics?: TextList };
+  person: { name: Text; role: string; photo?: string; since?: string | number; email?: string; lab_manager?: boolean; topics?: TextList };
   lang: Lang;
 }
 
@@ -25,6 +25,7 @@ const topics = txList(person.topics, lang);
   <h3>{name}</h3>
   <p class="role">
     {t(lang, `role.${person.role}` as any)}{person.since && <span> · {person.since}–</span>}
+    {person.lab_manager && <span class="badge">{t(lang, 'people.labManager')}</span>}
   </p>
   {
     topics.length > 0 && (
@@ -70,6 +71,18 @@ const topics = txList(person.topics, lang);
   h3 {
     font-size: 1.05rem;
     font-weight: 700;
+  }
+
+  .badge {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 8px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    vertical-align: 1px;
   }
 
   .role {

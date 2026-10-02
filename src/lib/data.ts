@@ -104,6 +104,7 @@ const peopleSchema = z.object({
         photo: z.string().optional(),
         since: z.union([z.string(), z.number()]).optional(),
         email: z.string().optional(),
+        lab_manager: z.boolean().default(false),
         topics: textList.optional(),
       }),
     )
@@ -223,6 +224,9 @@ const byDateDesc = <T extends { date: string }>(a: T, b: T) => b.date.localeComp
 export const news = load('news.yaml', newsRaw, newsSchema).sort(byDateDesc);
 talks.sort(byDateDesc);
 media.sort(byDateDesc);
+
+/** The current student lab manager (members entry with lab_manager: true and an email). */
+export const labManager = people.members.find((m) => m.lab_manager && m.email);
 
 export const publications = load('publications.yaml', publicationsRaw, publicationsSchema).sort((a, b) => b.year - a.year);
 
