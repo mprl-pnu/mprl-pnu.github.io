@@ -12,6 +12,11 @@
 #            people 입학/졸업 · media 언론·대외활동 · lab 연구실 생활
 # ─────────────────────────────────────────────────────────────
 
+- date: 2026-10   # TODO: 정확한 졸업일을 알면 2026-08-xx 처럼 바꿔주세요
+  tag: people
+  ko: 김정환 군이 졸업 후 DRB에 입사했습니다. 축하합니다!
+  en: Congratulations to our graduate student on graduating and joining DRB!
+
 - date: 2026-09-07
   tag: paper
   ko: >-
