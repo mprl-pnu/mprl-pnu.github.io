@@ -104,26 +104,27 @@ members:
 #  졸업생 (degree: ms | phd | undergrad, year: 졸업연도, now: 현재 소속) — degree, year는 선택
 # ─────────────────────────────────────────────────────────────
 alumni:   # TODO: 졸업연도(year)와 학위(degree)를 채워주세요
-  - name: Jeong-* Kim
+  # name / now 는 { ko: 한글, en: English } 로 적으면 한국어·영어 페이지에 각각 표시됩니다.
+  - name: { ko: 김정*, en: Jeong-* Kim }
     now: DRB
-  - name: Jeong-* Choi
-    now: ASML Korea
-  - name: Se-* Park
+  - name: { ko: 최정*, en: Jeong-* Choi }
+    now: { ko: ASML코리아, en: ASML Korea }
+  - name: { ko: 박세*, en: Se-* Park }
     now: OpenPath Robotics
-  - name: Min-* Kim
-    now: Virginia Tech
-  - name: Jin-* Kim
-    now: LG Electronics
-  - name: Jun-* Oh
-    now: Doosan Enerbility
-  - name: Hye-* Kim
-  - name: Seung-* Lee
-    now: Samsung Electronics
-  - name: Hyeok-* Kweon
+  - name: { ko: 김민*, en: Min-* Kim }
+    now: { ko: 버지니아공대, en: Virginia Tech }
+  - name: { ko: 김진*, en: Jin-* Kim }
+    now: { ko: LG전자, en: LG Electronics }
+  - name: { ko: 오준*, en: Jun-* Oh }
+    now: { ko: 두산에너빌리티, en: Doosan Enerbility }
+  - name: { ko: 김혜*, en: Hye-* Kim }
+  - name: { ko: 이승*, en: Seung-* Lee }
+    now: { ko: 삼성전자, en: Samsung Electronics }
+  - name: { ko: 권혁*, en: Hyeok-* Kweon }
     now: KAIST
-  - name: Sang-* Lee
-    now: Hyundai Motor Company
-  - name: Jae-* Choi
-    now: LG Energy Solution
-  - name: Min-* Do
-    now: Republic of Korea Air Force
+  - name: { ko: 이상*, en: Sang-* Lee }
+    now: { ko: 현대자동차, en: Hyundai Motor Company }
+  - name: { ko: 최재*, en: Jae-* Choi }
+    now: { ko: LG에너지솔루션, en: LG Energy Solution }
+  - name: { ko: 도민*, en: Min-* Do }
+    now: { ko: 대한민국 공군, en: Republic of Korea Air Force }
